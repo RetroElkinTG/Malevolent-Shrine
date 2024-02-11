@@ -44,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
     // Move the player in the direction of input
     void MoveCharacter()
     {
-        myRigidbody.MovePosition(
-            transform.position + myPosition * speed * Time.deltaTime);
+        myRigidbody.MovePosition(transform.position + myPosition * speed * Time.deltaTime);
     }
 }
