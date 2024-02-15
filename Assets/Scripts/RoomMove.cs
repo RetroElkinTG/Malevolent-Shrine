@@ -2,24 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+//using UnityEngine.UI;
 
 public class RoomMove : MonoBehaviour
 {
     public Vector2 cameraChange;
     public Vector3 playerChange;
     private CameraMovement cameraMovement;
-    //public bool needText;
-    //public string placeName;
-    //public GameObject text;
-    //public TextMeshPro placeText;
+    public bool needText;
+    public string locationName;
+    public GameObject text;
+    public TextMeshPro locationText;
 
     // Start with getting camera components
     void Start()
     {
         cameraMovement = Camera.main.GetComponent<CameraMovement>();
-        //TextMeshPro textmeshPro = GetComponent<TextMeshPro>();
-        //textmeshPro.outlineWidth = 0.2f;
-        //textmeshPro.outlineColor = new Color32(255, 128, 0, 255);
+        //locationText = GameObject.GetComponent<TextMeshPro>();
     }
 
     // Update is called once per frame
@@ -36,15 +35,19 @@ public class RoomMove : MonoBehaviour
             cameraMovement.minPosition += cameraChange;
             cameraMovement.maxPosition += cameraChange;
             collision.transform.position += playerChange;
-            //if (needText)
-            //{
-
-            //}
+            if (needText)
+            {
+                StartCoroutine(PlaceNameCo());
+            }
         }
     }
 
-    //private IEnumerator PlaceNameCo()
-    //{
-    //    text.SetActive(true);
-    //}
+    // Display location text for 4 seconds
+    private IEnumerator PlaceNameCo()
+    {
+        text.SetActive(true);
+        locationText.text = locationName;
+        yield return new WaitForSeconds(4f);
+        text.SetActive(false);
+    }
 }

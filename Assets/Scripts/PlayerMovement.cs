@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     // Start with getting player components
     void Start()
     {
-        //myAnimator = GetComponent<Animator>();
+        myAnimator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -31,13 +31,13 @@ public class PlayerMovement : MonoBehaviour
         if (myPosition != Vector3.zero)
         {
             MoveCharacter();
-            //myAnimator.SetFloat("moveX", myPosition.x);
-            //myAnimator.SetFloat("moveY", myPosition.y);
-            //myAnimator.SetBool("moving", true);
+            myAnimator.SetFloat("moveX", myPosition.x);
+            myAnimator.SetFloat("moveY", myPosition.y);
+            myAnimator.SetBool("moving", true);
         }
         else
         {
-            //myAnimator.SetBool("moving", false);
+            myAnimator.SetBool("moving", false);
         }
     }
 

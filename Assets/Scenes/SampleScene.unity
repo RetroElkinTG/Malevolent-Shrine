@@ -20156,7 +20156,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405934781}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96411bedc9383dc4ab920e7e8cdefc7d, type: 3}
   m_Name: 
@@ -39813,7 +39813,7 @@ GameObject:
   - component: {fileID: 1967711658}
   - component: {fileID: 1967711660}
   m_Layer: 5
-  m_Name: Place Text
+  m_Name: Location Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39949,6 +39949,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraChange: {x: 0, y: 0}
   playerChange: {x: 0, y: 0, z: 0}
+  needText: 0
+  locationName: 
+  text: {fileID: 0}
+  locationText: {fileID: 0}
 --- !u!1001 &1681818849591615923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40073,6 +40077,14 @@ PrefabInstance:
     - target: {fileID: 5860911967462994517, guid: 895d089cff4a2e94197b68cf0e23c4ff, type: 3}
       propertyPath: m_Name
       value: Room Transfer Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 6737892556028104450, guid: 895d089cff4a2e94197b68cf0e23c4ff, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1967711656}
+    - target: {fileID: 6737892556028104450, guid: 895d089cff4a2e94197b68cf0e23c4ff, type: 3}
+      propertyPath: locationName
+      value: Number 2
       objectReference: {fileID: 0}
     - target: {fileID: 6737892556028104450, guid: 895d089cff4a2e94197b68cf0e23c4ff, type: 3}
       propertyPath: playerChange.y

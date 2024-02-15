@@ -14,7 +14,7 @@ public class PlayerAnimation : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void UpdateAnimation()
     {
         if (myPosition != Vector3.zero)
         {
