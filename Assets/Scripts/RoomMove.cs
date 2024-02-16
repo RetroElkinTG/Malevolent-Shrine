@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-//using UnityEngine.UI;
+using UnityEngine.UI;
 
 public class RoomMove : MonoBehaviour
 {
@@ -12,13 +12,13 @@ public class RoomMove : MonoBehaviour
     public bool needText;
     public string locationName;
     public GameObject text;
-    public TextMeshPro locationText;
+    public TextMeshProUGUI locationText;
 
-    // Start with getting camera components
+    // Start with getting variable components
     void Start()
     {
         cameraMovement = Camera.main.GetComponent<CameraMovement>();
-        //locationText = GameObject.GetComponent<TextMeshPro>();
+        locationText = locationText.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
