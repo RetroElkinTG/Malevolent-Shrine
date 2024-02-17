@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class RoomMove : MonoBehaviour
 {
@@ -18,7 +17,6 @@ public class RoomMove : MonoBehaviour
     void Start()
     {
         cameraMovement = Camera.main.GetComponent<CameraMovement>();
-        locationText = locationText.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame

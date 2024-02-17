@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
     }
 
-    // Update player movement each frame
+    // Update player position each frame
     void Update()
     {
         myPosition = Vector3.zero;
