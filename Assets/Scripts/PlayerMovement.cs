@@ -2,8 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlayerState 
+{ 
+    walk,
+    attack,
+    interact
+}
+
 public class PlayerMovement : MonoBehaviour
 {
+    public PlayerState currentState;
     public float speed;
     private Rigidbody2D myRigidbody;
     private Vector3 myPosition;
@@ -22,7 +30,24 @@ public class PlayerMovement : MonoBehaviour
         myPosition = Vector3.zero;
         myPosition.x = Input.GetAxisRaw("Horizontal");
         myPosition.y = Input.GetAxisRaw("Vertical");
-        UpdateAnimationAndMovement();
+        if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack) 
+        {
+            StartCoroutine(AttackCo());
+        }
+        else if (currentState == PlayerState.walk)
+        { 
+            UpdateAnimationAndMovement();
+        }
+    }
+
+    private IEnumerator AttackCo()
+    {
+        myAnimator.SetBool("attacking", true);
+        currentState = PlayerState.attack;
+        yield return null;
+        myAnimator.SetBool("attacking", false);
+        yield return new WaitForSeconds(.33f);
+        currentState = PlayerState.walk;
     }
 
     // Update player animation and movement
