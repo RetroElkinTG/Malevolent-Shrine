@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
     }
 
-    // Update player position each frame
+    // Update player state each frame
     void Update()
     {
         myPosition = Vector3.zero;
@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // Set attack animation when the attack button is pressed
     private IEnumerator AttackCo()
     {
         myAnimator.SetBool("attacking", true);

@@ -13,7 +13,7 @@ public class RoomMove : MonoBehaviour
     public GameObject text;
     public TextMeshProUGUI locationText;
 
-    // Start with getting variable components
+    // Start with getting components
     void Start()
     {
         cameraMovement = Camera.main.GetComponent<CameraMovement>();

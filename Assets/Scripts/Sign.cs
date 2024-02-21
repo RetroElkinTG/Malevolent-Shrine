@@ -16,7 +16,7 @@ public class Sign : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    // Check if player interacts with sign
     void Update()
     {
         if (Input.GetButtonDown("Interact") && playerInRange)
@@ -33,7 +33,7 @@ public class Sign : MonoBehaviour
         }
     }
 
-    // Player enters sign range
+    // Check if player enters sign range
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -42,7 +42,7 @@ public class Sign : MonoBehaviour
         }
     }
 
-    // Player leaves sign range
+    // Check if player leaves sign range
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
