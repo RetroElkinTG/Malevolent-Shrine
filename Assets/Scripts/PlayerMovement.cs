@@ -20,8 +20,11 @@ public class PlayerMovement : MonoBehaviour
     // Start with getting player components
     void Start()
     {
+        currentState = PlayerState.walk;
         myAnimator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
+        myAnimator.SetFloat("moveX", 0);
+        myAnimator.SetFloat("moveY", -1);
     }
 
     // Update player state each frame
@@ -70,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
     // Move the player in the direction of input
     void MoveCharacter()
     {
+        myPosition.Normalize();
         myRigidbody.MovePosition(transform.position + myPosition * speed * Time.deltaTime);
     }
 }
