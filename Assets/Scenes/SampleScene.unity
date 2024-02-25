@@ -40456,7 +40456,7 @@ GameObject:
   - component: {fileID: 1924625006}
   m_Layer: 0
   m_Name: Log
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40823,6 +40823,7 @@ GameObject:
   - component: {fileID: 3352442517680379465}
   - component: {fileID: 7557796200365612034}
   - component: {fileID: 4219139257593964355}
+  - component: {fileID: 7653321309851922139}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -41191,6 +41192,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7653321309851922139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2415301012761199473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78de8dfddbc910946a792f4598f8633d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockback: 5
+  knockbackTime: 0.4
 --- !u!1 &8967527199320741263 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4364887842506239014, guid: f8cbdb299aa72074890334bbd47dbfa7, type: 3}
