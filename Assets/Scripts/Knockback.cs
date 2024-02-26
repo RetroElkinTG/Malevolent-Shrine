@@ -7,31 +7,31 @@ public class Knockback : MonoBehaviour
     public float knockback;
     public float knockbackTime;
 
-    // Knockback entity when hit
+    // Knockback enemy when hit
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Enemy"))
         { 
-            Rigidbody2D entity = collision.GetComponent<Rigidbody2D>();
-            if (entity != null) 
-            { 
-                entity.isKinematic = false;
-                Vector2 vector = entity.transform.position - transform.position;
-                vector = vector.normalized * knockback;
-                entity.AddForce(vector, ForceMode2D.Impulse);
-                StartCoroutine(KnockbackTimeCo(entity));
+            Rigidbody2D myRigidbody = collision.GetComponent<Rigidbody2D>();
+            if (myRigidbody != null) 
+            {
+                myRigidbody.GetComponent<Enemy>().currentState = EnemyState.stagger;
+                Vector2 differenceVector = myRigidbody.transform.position - transform.position;
+                differenceVector = differenceVector.normalized * knockback;
+                myRigidbody.AddForce(differenceVector, ForceMode2D.Impulse);
+                StartCoroutine(KnockbackTimeCo(myRigidbody));
             }
         }
     }
 
-    // Knockback enemy until specified amount of time
-    private IEnumerator KnockbackTimeCo(Rigidbody2D entity) 
+    // Stop knockback after a specified amount of time
+    private IEnumerator KnockbackTimeCo(Rigidbody2D myRigidbody) 
     {
-        if (entity != null) 
+        if (myRigidbody != null) 
         { 
             yield return new WaitForSeconds(knockbackTime);
-            entity.velocity = Vector2.zero;
-            entity.isKinematic = true;
+            myRigidbody.velocity = Vector2.zero;
+            myRigidbody.GetComponent<Enemy>().currentState = EnemyState.idle;
         }
     }
 }
