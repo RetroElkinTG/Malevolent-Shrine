@@ -12,12 +12,6 @@ public class Breakable : MonoBehaviour
         objectAnimator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // Break the object
     public void Break() 
     {

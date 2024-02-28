@@ -19,12 +19,6 @@ public class RoomMove : MonoBehaviour
         cameraMovement = Camera.main.GetComponent<CameraMovement>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // Move camera if the player moves rooms - public cameraChange set to min and max if room isn't square
     private void OnTriggerEnter2D(Collider2D collision)
     {

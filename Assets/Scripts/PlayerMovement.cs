@@ -4,9 +4,11 @@ using UnityEngine;
 
 public enum PlayerState 
 { 
+    idle,
     walk,
+    interact,
     attack,
-    interact
+    stagger
 }
 
 public class PlayerMovement : MonoBehaviour
@@ -30,14 +32,15 @@ public class PlayerMovement : MonoBehaviour
     // Update player state each frame
     void Update()
     {
-        myPosition = Vector3.zero;
+        myPosition = Vector2.zero;
         myPosition.x = Input.GetAxisRaw("Horizontal");
         myPosition.y = Input.GetAxisRaw("Vertical");
-        if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack) 
+        if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack 
+            && currentState != PlayerState.stagger) 
         {
             StartCoroutine(AttackCo());
         }
-        else if (currentState == PlayerState.walk)
+        else if (currentState == PlayerState.walk || currentState == PlayerState.idle)
         { 
             UpdateAnimationAndMovement();
         }
@@ -75,5 +78,21 @@ public class PlayerMovement : MonoBehaviour
     {
         myPosition.Normalize();
         myRigidbody.MovePosition(transform.position + myPosition * speed * Time.deltaTime);
+    }
+
+    public void Knockback(float KnockbackTime)
+    {
+        StartCoroutine(KnockbackTimeCo(KnockbackTime));
+    }
+
+    // Stop knockback after a specified amount of time
+    private IEnumerator KnockbackTimeCo(float knockbackTime)
+    {
+        if (myRigidbody != null)
+        {
+            yield return new WaitForSeconds(knockbackTime);
+            myRigidbody.velocity = Vector2.zero;
+            currentState = PlayerState.idle;
+        }
     }
 }

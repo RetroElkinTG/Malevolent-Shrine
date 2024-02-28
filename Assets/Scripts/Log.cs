@@ -27,12 +27,12 @@ public class Log : Enemy
     // Check distance between enemy and player then move towards player
     void CheckDistance()
     { 
-        if (Vector3.Distance(targetPosition.position, transform.position) <= chaseRadius && 
-            Vector3.Distance(targetPosition.position, transform.position) > attackRadius)
+        if (Vector2.Distance(targetPosition.position, transform.position) <= chaseRadius && 
+            Vector2.Distance(targetPosition.position, transform.position) > attackRadius)
         { 
             if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger) 
             {
-                Vector3 targetVector = Vector3.MoveTowards(transform.position, targetPosition.position, enemyMovementSpeed * Time.deltaTime);
+                Vector2 targetVector = Vector2.MoveTowards(transform.position, targetPosition.position, enemyMovementSpeed * Time.deltaTime);
                 myRigidbody.MovePosition(targetVector);
                 ChangeState(EnemyState.walk);
             }

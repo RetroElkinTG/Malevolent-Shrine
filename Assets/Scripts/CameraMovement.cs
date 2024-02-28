@@ -9,12 +9,6 @@ public class CameraMovement : MonoBehaviour
     public Vector2 minPosition;
     public Vector2 maxPosition;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update camera movement to bound and smoothly follow player movement
     void LateUpdate()
     {

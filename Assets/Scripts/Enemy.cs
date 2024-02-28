@@ -18,15 +18,19 @@ public class Enemy : MonoBehaviour
     public int enemyBaseDamage;
     public float enemyMovementSpeed;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public void Knockback(Rigidbody2D myRigidbody, float knockbackTime)
+    { 
+        StartCoroutine(KnockbackTimeCo(myRigidbody, knockbackTime));
     }
 
-    // Update is called once per frame
-    void Update()
+    // Stop knockback after a specified amount of time
+    private IEnumerator KnockbackTimeCo(Rigidbody2D myRigidbody, float knockbackTime)
     {
-        
+        if (myRigidbody != null)
+        {
+            yield return new WaitForSeconds(knockbackTime);
+            myRigidbody.velocity = Vector2.zero;
+            currentState = EnemyState.idle;
+        }
     }
 }
