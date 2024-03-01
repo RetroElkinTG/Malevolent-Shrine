@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec0dac025b337554cb1aa754f8302243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraChange: {x: 0, y: 40}
+  cameraChange: {x: 0, y: 39.95}
   playerChange: {x: 0, y: 2, z: 0}
   needText: 1
   locationName: Up

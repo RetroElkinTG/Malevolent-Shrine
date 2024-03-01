@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3031250066314728111, guid: 895d089cff4a2e94197b68cf0e23c4ff, type: 3}
       propertyPath: m_Name
-      value: Room Transfer Left Variant
+      value: Room Transfer Left
       objectReference: {fileID: 0}
     - target: {fileID: 5306324778722344123, guid: 895d089cff4a2e94197b68cf0e23c4ff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6255115956193931348, guid: 895d089cff4a2e94197b68cf0e23c4ff, type: 3}
       propertyPath: cameraChange.x
-      value: -40
+      value: -39.95
       objectReference: {fileID: 0}
     - target: {fileID: 6255115956193931348, guid: 895d089cff4a2e94197b68cf0e23c4ff, type: 3}
       propertyPath: cameraChange.y

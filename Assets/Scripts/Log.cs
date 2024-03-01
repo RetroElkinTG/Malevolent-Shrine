@@ -9,12 +9,14 @@ public class Log : Enemy
     public float chaseRadius;
     public float attackRadius;
     public Transform homePosition;
+    private Animator myAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
         currentState = EnemyState.idle;
         myRigidbody = GetComponent<Rigidbody2D>();
+        myAnimator = GetComponent<Animator>();
         targetPosition = GameObject.FindWithTag("Player").transform;
     }
 
@@ -26,17 +28,34 @@ public class Log : Enemy
 
     // Check distance between enemy and player then move towards player
     void CheckDistance()
-    { 
-        if (Vector2.Distance(targetPosition.position, transform.position) <= chaseRadius && 
+    {
+        if (Vector2.Distance(targetPosition.position, transform.position) <= chaseRadius &&
             Vector2.Distance(targetPosition.position, transform.position) > attackRadius)
-        { 
-            if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger) 
+        {
+            if (currentState == EnemyState.idle || currentState == EnemyState.walk
+                && currentState != EnemyState.stagger)
             {
-                Vector2 targetVector = Vector2.MoveTowards(transform.position, targetPosition.position, enemyMovementSpeed * Time.deltaTime);
-                myRigidbody.MovePosition(targetVector);
+                Vector3 targetDirection = Vector2.MoveTowards(transform.position, targetPosition.position,
+                    enemyMovementSpeed * Time.deltaTime);
+                // Update animation
+                UpdateAnimation(targetDirection - transform.position);
+                myRigidbody.MovePosition(targetDirection);
                 ChangeState(EnemyState.walk);
+                myAnimator.SetBool("wakeUp", true);
             }
         }
+        else if (Vector2.Distance(targetPosition.position, transform.position) > chaseRadius)
+        {
+            myAnimator.SetBool("wakeUp", false);
+        }
+    }
+
+    // Update Animation
+    private void UpdateAnimation(Vector2 direction)
+    { 
+        direction = direction.normalized;
+        myAnimator.SetFloat("moveX", direction.x);
+        myAnimator.SetFloat("moveY", direction.y);
     }
 
     // Change enemy's state if not already in the state
