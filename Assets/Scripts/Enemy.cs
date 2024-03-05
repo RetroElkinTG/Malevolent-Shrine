@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Enemy states
 public enum EnemyState
 { 
     idle,
@@ -10,17 +11,37 @@ public enum EnemyState
     stagger,
 }
 
+// Enemy behaviour
 public class Enemy : MonoBehaviour
 {
     public EnemyState currentState;
-    public int enemyHealth;
+    public FloatValue enemyMaxHealth;
+    public float health;
     public string enemyName;
     public int enemyBaseDamage;
     public float enemyMovementSpeed;
 
-    public void Knockback(Rigidbody2D myRigidbody, float knockbackTime)
+    // Set enemy health
+    private void Awake()
+    {
+        health = enemyMaxHealth.initialValue;
+    }
+
+    // Reduce enemy health
+    private void TakeDamage(float damage) 
+    {
+        health -= damage;
+        if (health <= 0)
+        { 
+            gameObject.SetActive(false);
+        }
+    }
+
+    // Start knockback coroutine
+    public void Knockback(Rigidbody2D myRigidbody, float knockbackTime, float damage)
     { 
         StartCoroutine(KnockbackTimeCo(myRigidbody, knockbackTime));
+        TakeDamage(damage);
     }
 
     // Stop knockback after a specified amount of time

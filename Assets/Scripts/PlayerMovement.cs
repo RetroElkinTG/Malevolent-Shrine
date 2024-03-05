@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Player states
 public enum PlayerState 
 { 
     idle,
@@ -11,6 +12,7 @@ public enum PlayerState
     stagger
 }
 
+// Player movement behaviour
 public class PlayerMovement : MonoBehaviour
 {
     public PlayerState currentState;

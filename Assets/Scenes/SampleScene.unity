@@ -221,6 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockback: 6
   knockbackTime: 0.2
+  damage: 1
 --- !u!1 &177176471
 GameObject:
   m_ObjectHideFlags: 0
@@ -20315,6 +20316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockback: 6
   knockbackTime: 0.2
+  damage: 1
 --- !u!1 &889026145
 GameObject:
   m_ObjectHideFlags: 0
@@ -20413,6 +20415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockback: 6
   knockbackTime: 0.2
+  damage: 1
 --- !u!1 &929187157
 GameObject:
   m_ObjectHideFlags: 0
@@ -36998,6 +37001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockback: 6
   knockbackTime: 0.2
+  damage: 1
 --- !u!1 &1637257268
 GameObject:
   m_ObjectHideFlags: 0
@@ -40677,7 +40681,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  enemyHealth: 1
+  enemyMaxHealth: {fileID: 11400000, guid: 7185b41bae279a249aca3ffc4f389571, type: 2}
+  health: 0
   enemyName: Jonius
   enemyBaseDamage: 1
   enemyMovementSpeed: 2
@@ -40744,6 +40749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockback: 6
   knockbackTime: 0.2
+  damage: 0
 --- !u!4 &1932563368 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5306324778722344123, guid: 895d089cff4a2e94197b68cf0e23c4ff, type: 3}
