@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Health values
+// Float values for grouped objects
 [CreateAssetMenu]
 public class FloatValue : ScriptableObject
 {

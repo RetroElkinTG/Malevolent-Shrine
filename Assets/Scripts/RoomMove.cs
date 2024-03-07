@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+// Room movement behaviour
 public class RoomMove : MonoBehaviour
 {
     public Vector2 cameraChange;
@@ -22,7 +23,7 @@ public class RoomMove : MonoBehaviour
     // Move camera if the player moves rooms - public cameraChange set to min and max if room isn't square
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && collision.isTrigger == false)
+        if (collision.CompareTag("Player"))
         {
             cameraMovement.minPosition += cameraChange;
             cameraMovement.maxPosition += cameraChange;

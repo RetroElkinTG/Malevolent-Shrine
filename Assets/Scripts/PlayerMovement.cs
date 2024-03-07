@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 myPosition;
     private Animator myAnimator;
 
-    // Start with getting player components
+    // Get player components
     void Start()
     {
         currentState = PlayerState.walk;
@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         myAnimator.SetFloat("moveY", -1);
     }
 
-    // Update player state each frame
+    // Update player state
     void Update()
     {
         myPosition = Vector2.zero;
@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // Set attack animation when the attack button is pressed
+    // Set attack animation
     private IEnumerator AttackCo()
     {
         myAnimator.SetBool("attacking", true);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+// Sign behaviour
 public class Sign : MonoBehaviour
 {
     public GameObject dialogBox;
@@ -10,7 +11,7 @@ public class Sign : MonoBehaviour
     public string dialog;
     public bool playerInRange;
 
-    // Check if player interacts with sign
+    // Activate dialog if interacted with
     void Update()
     {
         if (Input.GetButtonDown("Interact") && playerInRange)

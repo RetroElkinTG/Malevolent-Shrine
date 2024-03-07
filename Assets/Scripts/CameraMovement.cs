@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Camera movement behaviour
 public class CameraMovement : MonoBehaviour
 {
     public Transform target;
@@ -9,7 +10,7 @@ public class CameraMovement : MonoBehaviour
     public Vector2 minPosition;
     public Vector2 maxPosition;
 
-    // Update camera movement to bound and smoothly follow player movement
+    // Bound camera and smoothly follow player movement
     void LateUpdate()
     {
         if (transform.position != target.position) 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Log behaviour
 public class Log : Enemy
 {
     private Rigidbody2D myRigidbody;

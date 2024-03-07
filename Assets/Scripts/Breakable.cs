@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Behaviour for breakable objects
 public class Breakable : MonoBehaviour
 {
     private Animator objectAnimator;

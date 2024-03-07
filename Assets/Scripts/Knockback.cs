@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Knockback behaviour
 public class Knockback : MonoBehaviour
 {
     public float knockback;
     public float knockbackTime;
     public float damage;
 
-    // Knockback enemy when hit
+    // Knockback object on hit
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Breakable") && gameObject.CompareTag("Player"))
