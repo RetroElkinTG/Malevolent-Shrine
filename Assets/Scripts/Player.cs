@@ -13,13 +13,15 @@ public enum PlayerState
 }
 
 // Player movement behaviour
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public PlayerState currentState;
     public float speed;
     private Rigidbody2D myRigidbody;
     private Vector3 myPosition;
     private Animator myAnimator;
+    public FloatValue currentPlayerHealth;
+    public SignalSender currentPlayerHealthSignal;
 
     // Get player components
     void Start()
@@ -82,9 +84,15 @@ public class PlayerMovement : MonoBehaviour
         myRigidbody.MovePosition(transform.position + myPosition * speed * Time.deltaTime);
     }
 
-    public void Knockback(float KnockbackTime)
+    // Reduce player health and call knockback
+    public void Knockback(float KnockbackTime, float damage)
     {
-        StartCoroutine(KnockbackTimeCo(KnockbackTime));
+        currentPlayerHealth.initialValue -= damage;
+        if (currentPlayerHealth.initialValue > 0) 
+        {
+            currentPlayerHealthSignal.Raise();
+            StartCoroutine(KnockbackTimeCo(KnockbackTime));
+        }
     }
 
     // Stop knockback after a specified amount of time
