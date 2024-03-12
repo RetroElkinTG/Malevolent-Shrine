@@ -87,11 +87,15 @@ public class Player : MonoBehaviour
     // Reduce player health and call knockback
     public void Knockback(float KnockbackTime, float damage)
     {
-        currentPlayerHealth.initialValue -= damage;
-        if (currentPlayerHealth.initialValue > 0) 
+        currentPlayerHealth.runtimeValue -= damage;
+        currentPlayerHealthSignal.Raise();
+        if (currentPlayerHealth.runtimeValue > 0) 
         {
-            currentPlayerHealthSignal.Raise();
             StartCoroutine(KnockbackTimeCo(KnockbackTime));
+        }
+        else 
+        {
+            gameObject.SetActive(false);
         }
     }
 

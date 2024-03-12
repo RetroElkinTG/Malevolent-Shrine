@@ -23,7 +23,7 @@ public class RoomMove : MonoBehaviour
     // Move camera if the player moves rooms - public cameraChange set to min and max if room isn't square
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && collision.isTrigger)
         {
             cameraMovement.minPosition += cameraChange;
             cameraMovement.maxPosition += cameraChange;

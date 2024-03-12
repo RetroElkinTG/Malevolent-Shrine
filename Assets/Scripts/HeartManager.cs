@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class HeartManager : MonoBehaviour
     public Sprite quarterHeart;
     public Sprite emptyHeart;
     public FloatValue heartContainers;
+    public FloatValue currentPlayerHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -20,13 +22,49 @@ public class HeartManager : MonoBehaviour
         InitHearts();
     }
 
-    // Update hearts in UI
+    // Set hearts
     public void InitHearts()
     {
-        for (int i = 0; i < heartContainers.initialValue; i++) 
+        for (int index = 0; index < heartContainers.initialValue; index ++)
         {
-            hearts[i].gameObject.SetActive(true);
-            hearts[i].sprite = fullHeart;
+            hearts[index].gameObject.SetActive(true);
+            hearts[index].sprite = fullHeart;
+        }
+    }
+
+    // Update hearts
+    public void UpdateHearts()
+    {
+        float tempHealth = currentPlayerHealth.runtimeValue / 4;
+        for (int index = 0; index < heartContainers.initialValue; index ++)
+        {
+            UpdateHeartSprite(index, tempHealth);
+        }
+    }
+
+    // Update heart sprite
+    private void UpdateHeartSprite(int index, float tempHealth)
+    {
+        float currentHeart = Mathf.Ceil(tempHealth - 1);
+        if (index <= tempHealth - 1)
+        {
+            hearts[index].sprite = fullHeart;
+        }
+        else if (index >= tempHealth)
+        {
+            hearts[index].sprite = emptyHeart;
+        }
+        else if (index == currentHeart && (tempHealth % 1) == .50)
+        {
+            hearts[index].sprite = halfHeart;
+        }
+        else if (index == currentHeart && (tempHealth % 1) == .25)
+        {
+            hearts[index].sprite = quarterHeart;
+        }
+        else if (index == currentHeart && (tempHealth % 1) == .75)
+        {
+            hearts[index].sprite = threeQuarterHeart;
         }
     }
 }
