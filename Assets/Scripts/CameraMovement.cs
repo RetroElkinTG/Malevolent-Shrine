@@ -10,6 +10,14 @@ public class CameraMovement : MonoBehaviour
     public Vector2 minPosition;
     public Vector2 maxPosition;
 
+    // TODO Fix camera bounding when moving scenes by using scriptable object
+
+    // Set camera to player
+    private void Start()
+    {
+        transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
+    }
+
     // Bound camera and smoothly follow player movement
     void LateUpdate()
     {

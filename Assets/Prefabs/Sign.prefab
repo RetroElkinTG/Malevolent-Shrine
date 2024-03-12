@@ -164,7 +164,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -175,7 +175,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &-761327648768681892
 MonoBehaviour:
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f80177601d77d42bc5fcf0bc1a28f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogBox: {fileID: 4364887842506239014, guid: f8cbdb299aa72074890334bbd47dbfa7, type: 3}
-  dialogText: {fileID: 6504390946232327170, guid: d0e7ffdf97ebf94469ea2facd8a58df7, type: 3}
+  dialogBox: {fileID: 0}
+  dialogText: {fileID: 0}
   dialog: Next Area
   playerInRange: 0

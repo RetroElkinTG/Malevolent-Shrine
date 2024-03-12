@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Float values for grouped objects
+// Float value behaviour
 [CreateAssetMenu]
 public class FloatValue : ScriptableObject, ISerializationCallbackReceiver
 {

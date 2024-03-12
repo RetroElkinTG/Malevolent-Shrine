@@ -6,6 +6,7 @@ MonoImporter:
   defaultReferences:
   - currentPlayerHealth: {fileID: 11400000, guid: 3521a2a4e45cc7c478c91a0cdc5a9b4b, type: 2}
   - currentPlayerHealthSignal: {fileID: 11400000, guid: 3bfbbb4279b33ae4ab81507b2d0a4482, type: 2}
+  - startingPosition: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}
   executionOrder: 50
   icon: {instanceID: 0}
   userData: 

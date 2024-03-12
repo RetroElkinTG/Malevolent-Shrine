@@ -20,8 +20,11 @@ public class Player : MonoBehaviour
     private Rigidbody2D myRigidbody;
     private Vector3 myPosition;
     private Animator myAnimator;
+
     public FloatValue currentPlayerHealth;
     public SignalSender currentPlayerHealthSignal;
+
+    public VectorValue startingPosition;
 
     // Get player components
     void Start()
@@ -31,6 +34,7 @@ public class Player : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator.SetFloat("moveX", 0);
         myAnimator.SetFloat("moveY", -1);
+        transform.position = startingPosition.initialValue;
     }
 
     // Update player state

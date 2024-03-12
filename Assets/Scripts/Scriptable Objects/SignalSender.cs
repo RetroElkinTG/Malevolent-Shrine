@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Signal system behaviour
+// Signal sender behaviour
 [CreateAssetMenu]
 public class SignalSender : ScriptableObject
 {
