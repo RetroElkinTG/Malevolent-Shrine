@@ -96,3 +96,4 @@ MonoBehaviour:
   locationName: Up
   text: {fileID: 0}
   locationText: {fileID: 0}
+  startingCameraPosition: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}

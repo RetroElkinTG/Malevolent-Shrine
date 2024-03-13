@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 public class SceneTransition : MonoBehaviour
 {
     public string sceneToLoad;
+    public Vector2 cameraMinPosition;
+    public Vector2 cameraMaxPosition;
     public Vector2 playerPosition;
-    public VectorValue playerPositionStorage;
+    public PlayerVectorValue playerPositionStorage;
 
     // Start is called before the first frame update
     public void OnTriggerEnter2D(Collider2D collision)
@@ -16,6 +18,8 @@ public class SceneTransition : MonoBehaviour
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
             playerPositionStorage.initialValue = playerPosition;
+            playerPositionStorage.initialMinPositionValue = cameraMinPosition;
+            playerPositionStorage.initialMaxPositionValue = cameraMaxPosition;
             SceneManager.LoadScene(sceneToLoad);
         }
     }

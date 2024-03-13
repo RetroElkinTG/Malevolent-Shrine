@@ -4802,11 +4802,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4080768988741967985, guid: 9960f888ed598ca47b2c56d97c53c294, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4080768988741967985, guid: 9960f888ed598ca47b2c56d97c53c294, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.024650276
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4080768988741967985, guid: 9960f888ed598ca47b2c56d97c53c294, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5386,6 +5386,22 @@ PrefabInstance:
     - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
       propertyPath: playerPosition.y
       value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
+      propertyPath: cameraMaxPosition.x
+      value: 10.825
+      objectReference: {fileID: 0}
+    - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
+      propertyPath: cameraMaxPosition.y
+      value: 54.925
+      objectReference: {fileID: 0}
+    - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
+      propertyPath: cameraMinPosition.x
+      value: -10.825
+      objectReference: {fileID: 0}
+    - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
+      propertyPath: cameraMinPosition.y
+      value: 24.975
       objectReference: {fileID: 0}
     - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
       propertyPath: playerPositionStorage

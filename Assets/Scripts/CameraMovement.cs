@@ -9,13 +9,14 @@ public class CameraMovement : MonoBehaviour
     public float smoothing;
     public Vector2 minPosition;
     public Vector2 maxPosition;
-
-    // TODO Fix camera bounding when moving scenes by using scriptable object
+    public PlayerVectorValue startingCameraPosition;
 
     // Set camera to player
     private void Start()
     {
         transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
+        minPosition = startingCameraPosition.initialMinPositionValue;
+        maxPosition = startingCameraPosition.initialMaxPositionValue;
     }
 
     // Bound camera and smoothly follow player movement

@@ -13,6 +13,7 @@ public class RoomMove : MonoBehaviour
     public string locationName;
     public GameObject text;
     public TextMeshProUGUI locationText;
+    public PlayerVectorValue startingCameraPosition;
 
     // Start with getting components
     void Start()
@@ -27,6 +28,8 @@ public class RoomMove : MonoBehaviour
         {
             cameraMovement.minPosition += cameraChange;
             cameraMovement.maxPosition += cameraChange;
+            startingCameraPosition.initialMinPositionValue = cameraMovement.minPosition;
+            startingCameraPosition.initialMaxPositionValue = cameraMovement.maxPosition;
             collision.transform.position += playerChange;
             if (needText)
             {

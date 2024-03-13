@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO Fix enemies loading on scene
+// TODO Fix sign text inactive because game object inactive
+
 // Player states
 public enum PlayerState 
 { 
@@ -24,7 +27,7 @@ public class Player : MonoBehaviour
     public FloatValue currentPlayerHealth;
     public SignalSender currentPlayerHealthSignal;
 
-    public VectorValue startingPosition;
+    public PlayerVectorValue startingPosition;
 
     // Get player components
     void Start()
