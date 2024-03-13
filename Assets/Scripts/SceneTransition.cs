@@ -11,16 +11,42 @@ public class SceneTransition : MonoBehaviour
     public Vector2 cameraMaxPosition;
     public Vector2 playerPosition;
     public PlayerVectorValue playerPositionStorage;
+    public GameObject fadeInPanel;
+    public GameObject fadeOutPanel;
+    public float fadeWait;
+
+    private void Awake()
+    {
+        if (fadeInPanel != null)
+        {
+            GameObject panel = Instantiate(fadeInPanel, Vector3.zero, Quaternion.identity) as GameObject;
+            Destroy(panel, 1);
+        }
+    }
 
     // Start is called before the first frame update
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-            playerPositionStorage.initialValue = playerPosition;
-            playerPositionStorage.initialMinPositionValue = cameraMinPosition;
-            playerPositionStorage.initialMaxPositionValue = cameraMaxPosition;
-            SceneManager.LoadScene(sceneToLoad);
+            playerPositionStorage.runtimeValue = playerPosition;
+            playerPositionStorage.runtimeMinPositionValue = cameraMinPosition;
+            playerPositionStorage.runtimeMaxPositionValue = cameraMaxPosition;
+            StartCoroutine(FadeCo());
+        }
+    }
+
+    public IEnumerator FadeCo() 
+    {
+        if (fadeOutPanel != null) 
+        {
+            Instantiate(fadeOutPanel, Vector3.zero, Quaternion.identity);
+        }
+        yield return new WaitForSeconds(fadeWait);
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneToLoad);
+        while (!asyncOperation.isDone) 
+        {
+            yield return null;
         }
     }
 }

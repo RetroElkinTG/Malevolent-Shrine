@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b085a479df1dc4eab44cbfcc2e98c5, type: 3}
   m_Name: PlayerPosition
   m_EditorClassIdentifier: 
-  initialValue: {x: 0, y: 0}
-  initialMinPositionValue: {x: -10.825, y: -14.975}
-  initialMaxPositionValue: {x: 10.825, y: 14.974998}
+  runtimeValue: {x: 0, y: 0}
+  runtimeMinPositionValue: {x: -10.825, y: -14.975}
+  runtimeMaxPositionValue: {x: 10.825, y: 14.975}
+  defaultValue: {x: 0, y: 0}
+  defaultMinPositionValue: {x: -10.825, y: -14.975}
+  defaultMaxPositionValue: {x: 10.825, y: 14.975}

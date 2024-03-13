@@ -27636,12 +27636,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 1372462949}
     m_Modifications:
     - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
+      propertyPath: fadeWait
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
+      propertyPath: fadeInPanel
+      value: 
+      objectReference: {fileID: 6213899469066342374, guid: ac5ef6d7c6c45c1438f4eff901add5a9, type: 3}
+    - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
       propertyPath: sceneToLoad
       value: HouseInterior
       objectReference: {fileID: 0}
     - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
+      propertyPath: fadeOutPanel
+      value: 
+      objectReference: {fileID: 6686710433991435548, guid: e18e8714ad333a045b8aeaecab05a87e, type: 3}
+    - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
       propertyPath: playerPosition.x
-      value: 3
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
+      propertyPath: playerPosition.y
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
       propertyPath: cameraMaxPosition.x

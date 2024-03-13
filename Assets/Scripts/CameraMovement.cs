@@ -15,8 +15,8 @@ public class CameraMovement : MonoBehaviour
     private void Start()
     {
         transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
-        minPosition = startingCameraPosition.initialMinPositionValue;
-        maxPosition = startingCameraPosition.initialMaxPositionValue;
+        minPosition = startingCameraPosition.runtimeMinPositionValue;
+        maxPosition = startingCameraPosition.runtimeMaxPositionValue;
     }
 
     // Bound camera and smoothly follow player movement

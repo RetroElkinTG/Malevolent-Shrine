@@ -105,8 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119caa93840269a489510ad067b40110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 4080768988741967985, guid: 9960f888ed598ca47b2c56d97c53c294, type: 3}
   smoothing: 0.2
   minPosition: {x: -10.825, y: -14.975}
   maxPosition: {x: 10.825, y: 14.975}
-  startingPosition: {fileID: 0}
+  startingCameraPosition: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}

@@ -6,19 +6,19 @@ using UnityEngine;
 [CreateAssetMenu]
 public class FloatValue : ScriptableObject, ISerializationCallbackReceiver
 {
-    public float initialValue;
     [HideInInspector]
     public float runtimeValue;
+    public float defaultValue;
+
+    // Load float values into memory before running the entire program
+    public void OnAfterDeserialize()
+    {
+        runtimeValue = defaultValue;
+    }
 
     // Load float values into memory before running the entire program
     public void OnBeforeSerialize() 
     { 
 
-    }
-
-    // Load float values into memory before running the entire program
-    public void OnAfterDeserialize() 
-    {
-        runtimeValue = initialValue;
     }
 }

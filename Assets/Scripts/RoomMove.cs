@@ -28,8 +28,8 @@ public class RoomMove : MonoBehaviour
         {
             cameraMovement.minPosition += cameraChange;
             cameraMovement.maxPosition += cameraChange;
-            startingCameraPosition.initialMinPositionValue = cameraMovement.minPosition;
-            startingCameraPosition.initialMaxPositionValue = cameraMovement.maxPosition;
+            startingCameraPosition.runtimeMinPositionValue = cameraMovement.minPosition;
+            startingCameraPosition.runtimeMaxPositionValue = cameraMovement.maxPosition;
             collision.transform.position += playerChange;
             if (needText)
             {

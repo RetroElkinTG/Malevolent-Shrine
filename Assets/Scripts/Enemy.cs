@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     // Set enemy health
     private void Awake()
     {
-        health = enemyMaxHealth.initialValue;
+        health = enemyMaxHealth.runtimeValue;
     }
 
     // Reduce enemy health
