@@ -6,6 +6,8 @@ using TMPro;
 // Sign behaviour
 public class Sign : MonoBehaviour
 {
+    public SignalSender contextOn;
+    public SignalSender contextOff;
     public GameObject dialogBox;
     public TextMeshProUGUI dialogText;
     public string dialog;
@@ -33,6 +35,7 @@ public class Sign : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            contextOn.Raise();
             playerInRange = true;
         }
     }
@@ -42,6 +45,7 @@ public class Sign : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            contextOff.Raise();
             playerInRange = false;
             dialogBox.SetActive(false);
         }

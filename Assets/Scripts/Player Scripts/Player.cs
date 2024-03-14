@@ -5,6 +5,7 @@ using UnityEngine;
 // TODO Fix enemies loading on scene
 // TODO Fix sign text inactive because game object inactive
 // TODO Fix collision glitches
+// TODO Fix camera going to player at beginning
 
 // Player states
 public enum PlayerState 

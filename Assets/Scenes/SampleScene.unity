@@ -10980,9 +10980,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 1372462949}
     m_Modifications:
     - target: {fileID: -761327648768681892, guid: a1a740f2456b1b14dad73c1d194b183a, type: 3}
+      propertyPath: contextOn
+      value: 
+      objectReference: {fileID: 11400000, guid: 318ded5188a1aa145bfaa9bb08b84899, type: 2}
+    - target: {fileID: -761327648768681892, guid: a1a740f2456b1b14dad73c1d194b183a, type: 3}
       propertyPath: dialogBox
       value: 
       objectReference: {fileID: 8967527199320741263}
+    - target: {fileID: -761327648768681892, guid: a1a740f2456b1b14dad73c1d194b183a, type: 3}
+      propertyPath: contextOff
+      value: 
+      objectReference: {fileID: 11400000, guid: 6bb2c3ff76a143f4aa41c398b6989a90, type: 2}
     - target: {fileID: -761327648768681892, guid: a1a740f2456b1b14dad73c1d194b183a, type: 3}
       propertyPath: dialogText
       value: 
@@ -44675,14 +44683,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 2477301389939345849}
-    - target: {fileID: 629391989845272112, guid: 9b0fde9fdad21804ea02b47b170c25f7, type: 3}
-      propertyPath: startingPosition
-      value: 
-      objectReference: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}
-    - target: {fileID: 629391989845272112, guid: 9b0fde9fdad21804ea02b47b170c25f7, type: 3}
-      propertyPath: startingCameraPosition
-      value: 
-      objectReference: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}
     - target: {fileID: 3556634042587100757, guid: 9b0fde9fdad21804ea02b47b170c25f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

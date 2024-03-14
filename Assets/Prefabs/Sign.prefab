@@ -189,6 +189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f80177601d77d42bc5fcf0bc1a28f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contextOn: {fileID: 11400000, guid: 318ded5188a1aa145bfaa9bb08b84899, type: 2}
+  contextOff: {fileID: 11400000, guid: 6bb2c3ff76a143f4aa41c398b6989a90, type: 2}
   dialogBox: {fileID: 0}
   dialogText: {fileID: 0}
   dialog: Next Area

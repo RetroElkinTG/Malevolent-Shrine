@@ -15,6 +15,7 @@ public class SceneTransition : MonoBehaviour
     public GameObject fadeOutPanel;
     public float fadeWait;
 
+    // Create fade panel on scene transition
     private void Awake()
     {
         if (fadeInPanel != null)
@@ -24,7 +25,7 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
+    // Store player values on collision
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
@@ -36,6 +37,7 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
+    // Fade while loading
     public IEnumerator FadeCo() 
     {
         if (fadeOutPanel != null) 
