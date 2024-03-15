@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b085a479df1dc4eab44cbfcc2e98c5, type: 3}
   m_Name: PlayerPosition
   m_EditorClassIdentifier: 
-  runtimeValue: {x: 0, y: 0}
-  runtimeMinPositionValue: {x: -10.825, y: -14.975}
-  runtimeMaxPositionValue: {x: 10.825, y: 14.975}
-  defaultValue: {x: 0, y: 0}
-  defaultMinPositionValue: {x: -10.825, y: -14.975}
-  defaultMaxPositionValue: {x: 10.825, y: 14.975}
+  runtimePlayerPosition: {x: 0, y: 0}
+  defaultPlayerPosition: {x: 0, y: 0}
+  runtimeCameraMinPosition: {x: -10.825, y: -14.975}
+  defaultCameraMinPosition: {x: -10.825, y: -14.975}
+  runtimeCameraMaxPosition: {x: 10.825, y: 14.975}
+  defaultCameraMaxPosition: {x: 10.825, y: 14.975}

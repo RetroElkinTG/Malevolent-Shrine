@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Float value behaviour
+// Heart values
 [CreateAssetMenu]
-public class FloatValue : ScriptableObject, ISerializationCallbackReceiver
+public class HeartValues : ScriptableObject, ISerializationCallbackReceiver
 {
     [HideInInspector]
     public float runtimeValue;
     public float defaultValue;
 
-    // Load float values into memory before running the entire program
+    // Load transition values pre-runtime
     public void OnAfterDeserialize()
     {
         runtimeValue = defaultValue;
     }
 
-    // Load float values into memory before running the entire program
+    // Required for above method
     public void OnBeforeSerialize() 
     { 
 

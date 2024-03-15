@@ -9,14 +9,14 @@ public class CameraMovement : MonoBehaviour
     public float smoothing;
     public Vector2 minPosition;
     public Vector2 maxPosition;
-    public PlayerVectorValue startingCameraPosition;
+    public TransitionValues startingCameraPosition;
 
     // Set camera to player
     private void Start()
     {
         transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
-        minPosition = startingCameraPosition.runtimeMinPositionValue;
-        maxPosition = startingCameraPosition.runtimeMaxPositionValue;
+        minPosition = startingCameraPosition.runtimeCameraMinPosition;
+        maxPosition = startingCameraPosition.runtimeCameraMaxPosition;
     }
 
     // Bound camera and smoothly follow player movement

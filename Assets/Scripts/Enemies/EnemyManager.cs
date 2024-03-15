@@ -15,7 +15,7 @@ public enum EnemyState
 public class EnemyManager : MonoBehaviour
 {
     public EnemyState currentState;
-    public FloatValue enemyMaxHealth;
+    public HeartValues enemyMaxHealth;
     public float health;
     public string enemyName;
     public int enemyBaseDamage;

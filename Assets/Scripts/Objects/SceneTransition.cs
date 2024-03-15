@@ -11,7 +11,7 @@ public class SceneTransition : MonoBehaviour
     public Vector2 cameraMaxPosition;
     public Vector2 playerPosition;
 
-    public PlayerVectorValue playerPositionStorage;
+    public TransitionValues playerPositionStorage;
 
     public GameObject fadeInPanel;
     public GameObject fadeOutPanel;
@@ -32,9 +32,9 @@ public class SceneTransition : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-            playerPositionStorage.runtimeValue = playerPosition;
-            playerPositionStorage.runtimeMinPositionValue = cameraMinPosition;
-            playerPositionStorage.runtimeMaxPositionValue = cameraMaxPosition;
+            playerPositionStorage.runtimePlayerPosition = playerPosition;
+            playerPositionStorage.runtimeCameraMinPosition = cameraMinPosition;
+            playerPositionStorage.runtimeCameraMaxPosition = cameraMaxPosition;
             StartCoroutine(FadeCo());
         }
     }

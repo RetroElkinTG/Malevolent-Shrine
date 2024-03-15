@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TreasureChest : Interactable
+// Treasure chest behaviour
+public class TreasureChest : ObjectManager
 {
     // Start is called before the first frame update
     void Start()

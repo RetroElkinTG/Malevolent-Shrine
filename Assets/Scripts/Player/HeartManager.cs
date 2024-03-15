@@ -13,8 +13,8 @@ public class HeartManager : MonoBehaviour
     public Sprite halfHeart;
     public Sprite quarterHeart;
     public Sprite emptyHeart;
-    public FloatValue heartContainers;
-    public FloatValue currentPlayerHealth;
+    public HeartValues heartContainers;
+    public HeartValues currentPlayerHealth;
 
     // Start is called before the first frame update
     void Start()

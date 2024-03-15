@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 // Sign behaviour
-public class Sign : Interactable
+public class Sign : ObjectManager
 {
     public GameObject dialogBox;
     public TextMeshProUGUI dialogText;

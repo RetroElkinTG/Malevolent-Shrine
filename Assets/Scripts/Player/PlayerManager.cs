@@ -26,9 +26,9 @@ public class PlayerManager : MonoBehaviour
     private Vector3 myPosition;
     private Animator myAnimator;
 
-    public FloatValue currentPlayerHealth;
+    public HeartValues currentPlayerHealth;
     public SignalSender currentPlayerHealthSignal;
-    public PlayerVectorValue startingPosition;
+    public TransitionValues startingPosition;
 
     // Get player components
     void Start()
@@ -38,7 +38,7 @@ public class PlayerManager : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator.SetFloat("moveX", 0);
         myAnimator.SetFloat("moveY", -1);
-        transform.position = startingPosition.runtimeValue;
+        transform.position = startingPosition.runtimePlayerPosition;
     }
 
     // Update player state

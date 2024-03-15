@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+// Object manager behaviour
+public class ObjectManager : MonoBehaviour
 {
     public bool playerInRange;
     public SignalSender context;
