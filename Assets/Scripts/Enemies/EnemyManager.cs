@@ -12,7 +12,7 @@ public enum EnemyState
 }
 
 // Enemy behaviour
-public class Enemy : MonoBehaviour
+public class EnemyManager : MonoBehaviour
 {
     public EnemyState currentState;
     public FloatValue enemyMaxHealth;

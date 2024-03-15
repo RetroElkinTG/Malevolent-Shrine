@@ -4,15 +4,13 @@ using UnityEngine;
 using TMPro;
 
 // Sign behaviour
-public class Sign : MonoBehaviour
+public class Sign : Interactable
 {
-    public SignalSender context;
     public GameObject dialogBox;
     public TextMeshProUGUI dialogText;
     public string dialog;
-    public bool playerInRange;
 
-    // Activate dialog if interacted with
+    // Activate dialog on interact
     void Update()
     {
         if (Input.GetButtonDown("Interact") && playerInRange)
@@ -26,16 +24,6 @@ public class Sign : MonoBehaviour
                 dialogBox.SetActive(true);
                 dialogText.text = dialog;
             }
-        }
-    }
-
-    // Check if player enters sign range
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player") && !collision.isTrigger)
-        {
-            context.Raise();
-            playerInRange = true;
         }
     }
 

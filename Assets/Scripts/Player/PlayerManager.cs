@@ -28,7 +28,6 @@ public class PlayerManager : MonoBehaviour
 
     public FloatValue currentPlayerHealth;
     public SignalSender currentPlayerHealthSignal;
-
     public PlayerVectorValue startingPosition;
 
     // Get player components

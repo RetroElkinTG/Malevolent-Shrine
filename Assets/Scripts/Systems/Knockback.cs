@@ -26,8 +26,8 @@ public class Knockback : MonoBehaviour
                 collidedRigidbody.AddForce(differenceVector, ForceMode2D.Impulse);
                 if (collision.gameObject.CompareTag("Enemy") && collision.isTrigger) 
                 {
-                    collidedRigidbody.GetComponent<Enemy>().currentState = EnemyState.stagger;
-                    collision.GetComponent<Enemy>().Knockback(collidedRigidbody, knockbackTime, damage);
+                    collidedRigidbody.GetComponent<EnemyManager>().currentState = EnemyState.stagger;
+                    collision.GetComponent<EnemyManager>().Knockback(collidedRigidbody, knockbackTime, damage);
                 }
                 if (collision.gameObject.CompareTag("Player")) 
                 {

@@ -10456,6 +10456,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1372462949}
     m_Modifications:
+    - target: {fileID: 4120984026606716213, guid: 033a20c59c8579c4480107ce98961110, type: 3}
+      propertyPath: enemyName
+      value: Alexander
+      objectReference: {fileID: 0}
     - target: {fileID: 4278065519977954732, guid: 033a20c59c8579c4480107ce98961110, type: 3}
       propertyPath: m_Name
       value: Alexander
@@ -26943,19 +26947,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
       propertyPath: cameraMaxPosition.x
-      value: 10
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
       propertyPath: cameraMaxPosition.y
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
       propertyPath: cameraMinPosition.x
-      value: -10
+      value: -0.85
       objectReference: {fileID: 0}
     - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
       propertyPath: cameraMinPosition.y
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
       propertyPath: playerPositionStorage
@@ -27123,6 +27127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1372462949}
     m_Modifications:
+    - target: {fileID: 4120984026606716213, guid: 033a20c59c8579c4480107ce98961110, type: 3}
+      propertyPath: enemyName
+      value: Ordonez
+      objectReference: {fileID: 0}
     - target: {fileID: 4278065519977954732, guid: 033a20c59c8579c4480107ce98961110, type: 3}
       propertyPath: m_Name
       value: Ordonez
@@ -43932,7 +43940,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4278065519977954732, guid: 033a20c59c8579c4480107ce98961110, type: 3}
       propertyPath: m_Name
-      value: Log
+      value: Jonius
       objectReference: {fileID: 0}
     - target: {fileID: 5216421422736799299, guid: 033a20c59c8579c4480107ce98961110, type: 3}
       propertyPath: m_LocalPosition.x

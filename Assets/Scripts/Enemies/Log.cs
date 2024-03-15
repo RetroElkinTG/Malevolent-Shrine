@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Log behaviour
-public class Log : Enemy
+public class Log : EnemyManager
 {
     private Rigidbody2D myRigidbody;
     public Transform targetPosition;

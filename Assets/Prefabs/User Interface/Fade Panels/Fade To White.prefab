@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4340316149847040558}
   - component: {fileID: 975990286292209462}
   - component: {fileID: 7872687833380794123}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 8149030910787201675}
   - component: {fileID: 8724750712477188744}
   - component: {fileID: 5996218777684464554}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Fade To White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &8724750712477188744
 MonoBehaviour:
