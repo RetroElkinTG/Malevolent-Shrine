@@ -72,6 +72,22 @@ PrefabInstance:
       propertyPath: playerChange.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6255115956193931348, guid: 895d089cff4a2e94197b68cf0e23c4ff, type: 3}
+      propertyPath: cameraMaxChange.x
+      value: 39.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255115956193931348, guid: 895d089cff4a2e94197b68cf0e23c4ff, type: 3}
+      propertyPath: cameraMaxChange.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255115956193931348, guid: 895d089cff4a2e94197b68cf0e23c4ff, type: 3}
+      propertyPath: cameraMinChange.x
+      value: 39.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255115956193931348, guid: 895d089cff4a2e94197b68cf0e23c4ff, type: 3}
+      propertyPath: cameraMinChange.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

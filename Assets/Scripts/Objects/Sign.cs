@@ -6,8 +6,7 @@ using TMPro;
 // Sign behaviour
 public class Sign : MonoBehaviour
 {
-    public SignalSender contextOn;
-    public SignalSender contextOff;
+    public SignalSender context;
     public GameObject dialogBox;
     public TextMeshProUGUI dialogText;
     public string dialog;
@@ -33,9 +32,9 @@ public class Sign : MonoBehaviour
     // Check if player enters sign range
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-            contextOn.Raise();
+            context.Raise();
             playerInRange = true;
         }
     }
@@ -43,9 +42,9 @@ public class Sign : MonoBehaviour
     // Check if player leaves sign range
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-            contextOff.Raise();
+            context.Raise();
             playerInRange = false;
             dialogBox.SetActive(false);
         }

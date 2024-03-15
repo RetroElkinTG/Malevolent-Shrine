@@ -6,13 +6,16 @@ using TMPro;
 // Room movement behaviour
 public class RoomMove : MonoBehaviour
 {
-    public Vector2 cameraChange;
+    public Vector2 cameraMinChange;
+    public Vector2 cameraMaxChange;
     public Vector3 playerChange;
     private CameraMovement cameraMovement;
+
     public bool needText;
     public string locationName;
     public GameObject text;
     public TextMeshProUGUI locationText;
+
     public PlayerVectorValue startingCameraPosition;
 
     // Start with getting components
@@ -26,8 +29,8 @@ public class RoomMove : MonoBehaviour
     {
         if (collision.CompareTag("Player") && collision.isTrigger)
         {
-            cameraMovement.minPosition += cameraChange;
-            cameraMovement.maxPosition += cameraChange;
+            cameraMovement.minPosition += cameraMinChange;
+            cameraMovement.maxPosition += cameraMaxChange;
             startingCameraPosition.runtimeMinPositionValue = cameraMovement.minPosition;
             startingCameraPosition.runtimeMaxPositionValue = cameraMovement.maxPosition;
             collision.transform.position += playerChange;

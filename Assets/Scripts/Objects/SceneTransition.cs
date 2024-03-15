@@ -10,7 +10,9 @@ public class SceneTransition : MonoBehaviour
     public Vector2 cameraMinPosition;
     public Vector2 cameraMaxPosition;
     public Vector2 playerPosition;
+
     public PlayerVectorValue playerPositionStorage;
+
     public GameObject fadeInPanel;
     public GameObject fadeOutPanel;
     public float fadeWait;

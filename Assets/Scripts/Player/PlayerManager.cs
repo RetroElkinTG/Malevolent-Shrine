@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // TODO Fix enemies loading on scene
-// TODO Fix sign text inactive because game object inactive
 // TODO Fix collision glitches
-// TODO Fix camera going to player at beginning
+// TODO Fix camera going to player on scene transition
+// TODO Fix enemies stacking on each other
 
 // Player states
 public enum PlayerState 
@@ -18,7 +18,7 @@ public enum PlayerState
 }
 
 // Player movement behaviour
-public class Player : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     public PlayerState currentState;
     public float speed;
