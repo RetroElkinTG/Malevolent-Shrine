@@ -10,7 +10,7 @@ public class Sign : ObjectManager
     public TextMeshProUGUI dialogText;
     public string dialog;
 
-    // Activate dialog on interact
+    // Check for interaction
     void Update()
     {
         if (Input.GetButtonDown("Interact") && playerInRange)
@@ -27,7 +27,7 @@ public class Sign : ObjectManager
         }
     }
 
-    // Check if player leaves sign range
+    // Check if player leaves range
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)

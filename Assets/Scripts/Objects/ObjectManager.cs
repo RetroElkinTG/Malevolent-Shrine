@@ -8,18 +8,6 @@ public class ObjectManager : MonoBehaviour
     public bool playerInRange;
     public SignalSender context;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     // Check if player enters range
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -30,7 +18,7 @@ public class ObjectManager : MonoBehaviour
         }
     }
 
-    // Check if player leaves sign range
+    // Check if player leaves range
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)

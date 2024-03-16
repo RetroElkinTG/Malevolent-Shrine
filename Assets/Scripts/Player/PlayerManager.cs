@@ -30,6 +30,9 @@ public class PlayerManager : MonoBehaviour
     public SignalSender currentPlayerHealthSignal;
     public TransitionValues startingPosition;
 
+    public Inventory inventory;
+    public SpriteRenderer receivedItemSprite;
+
     // Get player components
     void Start()
     {
@@ -44,6 +47,10 @@ public class PlayerManager : MonoBehaviour
     // Update player state
     void Update()
     {
+        if (currentState == PlayerState.interact)
+        {
+            return;
+        }
         myPosition = Vector2.zero;
         myPosition.x = Input.GetAxisRaw("Horizontal");
         myPosition.y = Input.GetAxisRaw("Vertical");
@@ -66,7 +73,31 @@ public class PlayerManager : MonoBehaviour
         yield return null;
         myAnimator.SetBool("attacking", false);
         yield return new WaitForSeconds(.33f);
-        currentState = PlayerState.walk;
+        if (currentState != PlayerState.interact)
+        {
+            currentState = PlayerState.walk;
+        }
+    }
+
+    // Raise item
+    public void RaiseItem()
+    {
+        if (inventory.currentItem != null)
+        {
+            if (currentState != PlayerState.interact)
+            {
+                myAnimator.SetBool("receiveItem", true);
+                currentState = PlayerState.interact;
+                receivedItemSprite.sprite = inventory.currentItem.itemSprite;
+            }
+            else
+            {
+                myAnimator.SetBool("receiveItem", false);
+                currentState = PlayerState.idle;
+                receivedItemSprite.sprite = null;
+                inventory.currentItem = null;
+            }
+        }
     }
 
     // Update player animation and movement

@@ -5371,11 +5371,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
       propertyPath: playerPosition.x
-      value: 10
+      value: 9.5
       objectReference: {fileID: 0}
     - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
       propertyPath: playerPosition.y
-      value: 48
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
       propertyPath: cameraMaxPosition.x
