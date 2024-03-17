@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO Fix enemies loading on scene
-// TODO Fix collision glitches
-// TODO Fix camera going to player on scene transition
+// TODO Fix spam transition camera glitch
+// TODO Fix collision glitches on attack
 // TODO Fix enemies stacking on each other
+// TODO Fix enemies loading on scene transition
+// TODO Fix camera going to player on scene transition
+// TODO Fix hearts resetting on scene transition
 
 // Player states
 public enum PlayerState 

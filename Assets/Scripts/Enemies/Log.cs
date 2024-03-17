@@ -5,12 +5,12 @@ using UnityEngine;
 // Log behaviour
 public class Log : EnemyManager
 {
-    private Rigidbody2D myRigidbody;
+    public Rigidbody2D myRigidbody;
     public Transform targetPosition;
     public float chaseRadius;
     public float attackRadius;
     public Transform homePosition;
-    private Animator myAnimator;
+    public Animator myAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,7 @@ public class Log : EnemyManager
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         targetPosition = GameObject.FindWithTag("Player").transform;
+        myAnimator.SetBool("wakeUp", true);
     }
 
     // FixedUpdate is called once per physics frame
@@ -28,7 +29,7 @@ public class Log : EnemyManager
     }
 
     // Check distance between enemy and player then move towards player
-    void CheckDistance()
+    public virtual void CheckDistance()
     {
         if (Vector2.Distance(targetPosition.position, transform.position) <= chaseRadius &&
             Vector2.Distance(targetPosition.position, transform.position) > attackRadius)
@@ -38,7 +39,6 @@ public class Log : EnemyManager
             {
                 Vector3 targetDirection = Vector2.MoveTowards(transform.position, targetPosition.position,
                     enemyMovementSpeed * Time.deltaTime);
-                // Update animation
                 UpdateAnimation(targetDirection - transform.position);
                 myRigidbody.MovePosition(targetDirection);
                 ChangeState(EnemyState.walk);
@@ -52,7 +52,7 @@ public class Log : EnemyManager
     }
 
     // Update Animation
-    private void UpdateAnimation(Vector2 direction)
+    public void UpdateAnimation(Vector2 direction)
     { 
         direction = direction.normalized;
         myAnimator.SetFloat("moveX", direction.x);
