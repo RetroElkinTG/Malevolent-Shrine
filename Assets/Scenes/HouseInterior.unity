@@ -5370,6 +5370,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 724472946}
     m_Modifications:
     - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
+      propertyPath: sceneToLoad
+      value: Overworld
+      objectReference: {fileID: 0}
+    - target: {fileID: 389270072679454395, guid: c62cb850c06fa234fb523dea3227b01b, type: 3}
       propertyPath: playerPosition.x
       value: 9.5
       objectReference: {fileID: 0}
