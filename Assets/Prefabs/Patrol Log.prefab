@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 8871283968979442815}
   - component: {fileID: 2114622562110606206}
   - component: {fileID: 3035459886804676464}
-  - component: {fileID: 7079736322307021665}
   - component: {fileID: 8716139808457578936}
+  - component: {fileID: 7079736322307021665}
   - component: {fileID: 8084058233073943302}
-  - component: {fileID: 4230098518181606128}
   - component: {fileID: 2665715870501155543}
+  - component: {fileID: 4230098518181606128}
   m_Layer: 9
   m_Name: Patrol Log
   m_TagString: Enemy
@@ -111,6 +111,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &8716139808457578936
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703570526031407779}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!61 &7079736322307021665
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -156,33 +183,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.65, y: 0.63}
   m_EdgeRadius: 0
---- !u!50 &8716139808457578936
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703570526031407779}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 0
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!61 &8084058233073943302
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -228,21 +228,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 1.4}
   m_EdgeRadius: 0
---- !u!114 &4230098518181606128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703570526031407779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78de8dfddbc910946a792f4598f8633d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knockback: 6
-  knockbackTime: 0.2
-  damage: 1
 --- !u!114 &2665715870501155543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +249,7 @@ MonoBehaviour:
   myRigidbody: {fileID: 8716139808457578936}
   targetPosition: {fileID: 0}
   chaseRadius: 3
-  attackRadius: 1
+  attackRadius: 0.1
   homePosition: {fileID: 0}
   myAnimator: {fileID: 3035459886804676464}
   path:
@@ -273,3 +258,18 @@ MonoBehaviour:
   currentPoint: 0
   currentGoal: {fileID: 0}
   roundingDistance: 0.1
+--- !u!114 &4230098518181606128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703570526031407779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78de8dfddbc910946a792f4598f8633d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockback: 6
+  knockbackTime: 0.2
+  damage: 1

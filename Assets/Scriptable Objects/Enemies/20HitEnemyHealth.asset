@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a80bbeb98ff41e14983fbda5682cb8b0, type: 3}
   m_Name: 20HitEnemyHealth
   m_EditorClassIdentifier: 
-  runtimeValue: 2
-  defaultValue: 2
+  runtimeValue: 20
+  defaultValue: 20
