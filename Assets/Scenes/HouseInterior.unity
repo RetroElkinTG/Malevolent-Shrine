@@ -1499,7 +1499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 877961000876661544, guid: 14dc8c7e535b665438d377805520ece0, type: 3}
       propertyPath: m_Name
-      value: Room 1
+      value: House
       objectReference: {fileID: 0}
     - target: {fileID: 2179312470574566500, guid: 14dc8c7e535b665438d377805520ece0, type: 3}
       propertyPath: m_Size.x

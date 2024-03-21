@@ -4,18 +4,32 @@ using UnityEngine;
 
 // Inventory behaviour
 [CreateAssetMenu]
-public class Inventory : ScriptableObject
+public class Inventory : ScriptableObject, ISerializationCallbackReceiver
 {
     public Item currentItem;
     public List<Item> items = new List<Item>();
-    public int keyCount;
+    [HideInInspector]
+    public int runtimeKeyCount;
+    public int defaultKeyCount;
+
+    // Load values pre-runtime
+    public void OnAfterDeserialize()
+    {
+        runtimeKeyCount = defaultKeyCount;
+    }
+
+    // Required for above method
+    public void OnBeforeSerialize()
+    {
+
+    }
 
     // Add item to inventory
     public void AddItem(Item itemToAdd)
     {
         if (itemToAdd.isKey)
         {
-            keyCount++;
+            runtimeKeyCount++;
         }
         else
         {

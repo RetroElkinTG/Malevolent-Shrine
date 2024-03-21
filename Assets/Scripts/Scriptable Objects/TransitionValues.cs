@@ -7,17 +7,19 @@ using UnityEngine;
 [CreateAssetMenu]
 public class TransitionValues : ScriptableObject, ISerializationCallbackReceiver
 {
+    [HideInInspector]
     public Vector2 runtimePlayerPosition;
     public Vector2 defaultPlayerPosition;
-
+    [HideInInspector]
     public Vector2 runtimeCameraMinPosition;
     public Vector2 defaultCameraMinPosition;
+    [HideInInspector]
     public Vector2 runtimeCameraMaxPosition;
     public Vector2 defaultCameraMaxPosition;
 
-    // Load transition values pre-runtime
+    // Load values pre-runtime
     public void OnAfterDeserialize()
-    {
+    { 
         runtimePlayerPosition = defaultPlayerPosition;
         runtimeCameraMinPosition = defaultCameraMinPosition;
         runtimeCameraMaxPosition = defaultCameraMaxPosition;

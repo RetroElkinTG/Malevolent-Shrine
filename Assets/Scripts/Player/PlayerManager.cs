@@ -4,10 +4,6 @@ using UnityEngine;
 
 // TODO Fix spam transition camera glitch
 // TODO Fix collision glitches on attack
-// TODO Fix enemies stacking on each other
-// TODO Fix enemies loading on scene transition
-// TODO Fix camera going to player on scene transition
-// TODO Fix hearts resetting on scene transition
 
 // Player states
 public enum PlayerState 
@@ -28,7 +24,7 @@ public class PlayerManager : MonoBehaviour
     private Vector3 myPosition;
     private Animator myAnimator;
 
-    public HeartValues currentPlayerHealth;
+    public HealthValues currentPlayerHealth;
     public SignalSender currentPlayerHealthSignal;
     public TransitionValues startingPosition;
 
