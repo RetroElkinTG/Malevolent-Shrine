@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SmallKey
   m_EditorClassIdentifier: 
   itemSprite: {fileID: 21300000, guid: ab1c9a682b3655342ae6b0d68267c6b5, type: 3}
-  itemDescription: A key. For where hast thou opened?
+  itemDescription: A key with an inscription on its side - "Malevolent Shrine"
   isKey: 1

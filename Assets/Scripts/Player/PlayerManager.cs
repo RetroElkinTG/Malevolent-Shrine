@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO Fix spam transition camera glitch
-// TODO Fix collision glitches on attack
+// TODO Fix signs not activating when player has key
 
 // Player states
 public enum PlayerState 
@@ -18,21 +17,36 @@ public enum PlayerState
 // Player movement behaviour
 public class PlayerManager : MonoBehaviour
 {
+    [Header("Movement Values")]
     public PlayerState currentState;
     public float speed;
     private Rigidbody2D myRigidbody;
     private Vector3 myPosition;
     private Animator myAnimator;
 
+    [Header("Health Values")]
     public HealthValues currentPlayerHealth;
     public SignalSender currentPlayerHealthSignal;
     public TransitionValues startingPosition;
 
+    [Header("Inventory Values")]
     public Inventory inventory;
     public SpriteRenderer receivedItemSprite;
 
-    // Get player components
+    // Start is called before the first frame update
     void Start()
+    {
+        GetPlayerComponents();
+    }
+
+    // Update is called each frame update
+    void Update()
+    {
+        UpdatePlayerState();
+    }
+
+    // Get player components
+    void GetPlayerComponents()
     {
         currentState = PlayerState.walk;
         myAnimator = GetComponent<Animator>();
@@ -43,7 +57,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     // Update player state
-    void Update()
+    void UpdatePlayerState()
     {
         if (currentState == PlayerState.interact)
         {
@@ -52,13 +66,13 @@ public class PlayerManager : MonoBehaviour
         myPosition = Vector2.zero;
         myPosition.x = Input.GetAxisRaw("Horizontal");
         myPosition.y = Input.GetAxisRaw("Vertical");
-        if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack 
-            && currentState != PlayerState.stagger) 
+        if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack
+            && currentState != PlayerState.stagger)
         {
             StartCoroutine(AttackCo());
         }
         else if (currentState == PlayerState.walk || currentState == PlayerState.idle)
-        { 
+        {
             UpdateAnimationAndMovement();
         }
     }
