@@ -76,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1046530407
-  m_SortingLayer: 1
+  m_SortingLayerID: 1614739705
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1774711681, guid: e31b7d34e5ae9c442b3cf401fe8e4f18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -242,16 +242,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   enemyMaxHealth: {fileID: 11400000, guid: 7185b41bae279a249aca3ffc4f389571, type: 2}
-  health: 0
+  health: 2
   enemyName: Jonius
   enemyBaseDamage: 1
   enemyMovementSpeed: 2
-  myRigidbody: {fileID: 0}
-  targetPosition: {fileID: 0}
+  deathAnimation: {fileID: 1990185399857122658, guid: 223645557e0960a4c80102db88b2bea8, type: 3}
+  myRigidbody: {fileID: 1245568784483282190}
+  targetPosition: {fileID: 5216421422736799299}
   chaseRadius: 4
   attackRadius: 0.1
-  homePosition: {fileID: 0}
-  myAnimator: {fileID: 0}
+  homePosition: {fileID: 5216421422736799299}
+  myAnimator: {fileID: 6504453815618230189}
 --- !u!114 &5433416475371499851
 MonoBehaviour:
   m_ObjectHideFlags: 0

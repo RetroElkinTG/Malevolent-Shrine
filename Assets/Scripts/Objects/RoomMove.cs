@@ -9,7 +9,7 @@ public class RoomMove : MonoBehaviour
     public Vector2 cameraMinChange;
     public Vector2 cameraMaxChange;
     public Vector3 playerChange;
-    private CameraMovement cameraMovement;
+    private CameraManager cameraMovement;
 
     public bool needText;
     public string locationName;
@@ -21,7 +21,7 @@ public class RoomMove : MonoBehaviour
     // Start with getting components
     void Start()
     {
-        cameraMovement = Camera.main.GetComponent<CameraMovement>();
+        cameraMovement = Camera.main.GetComponent<CameraManager>();
     }
 
     // Move camera if the player moves rooms - public cameraChange set to min and max if room isn't square

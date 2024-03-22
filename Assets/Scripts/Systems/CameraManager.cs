@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Camera movement behaviour
-public class CameraMovement : MonoBehaviour
+// Camera behaviour
+public class CameraManager : MonoBehaviour
 {
     public Transform target;
     public float smoothing;
@@ -14,7 +14,8 @@ public class CameraMovement : MonoBehaviour
     // Set camera to player
     private void Start()
     {
-        transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
+        transform.position = new Vector3(startingCameraPosition.runtimePlayerPosition.x, 
+            startingCameraPosition.runtimePlayerPosition.y, transform.position.z);
         minPosition = startingCameraPosition.runtimeCameraMinPosition;
         maxPosition = startingCameraPosition.runtimeCameraMaxPosition;
     }

@@ -76,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1046530407
-  m_SortingLayer: 1
+  m_SortingLayerID: 1614739705
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1566248495, guid: e31b7d34e5ae9c442b3cf401fe8e4f18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -246,11 +246,12 @@ MonoBehaviour:
   enemyName: Patrolium
   enemyBaseDamage: 1
   enemyMovementSpeed: 2
+  deathAnimation: {fileID: 1990185399857122658, guid: 223645557e0960a4c80102db88b2bea8, type: 3}
   myRigidbody: {fileID: 8716139808457578936}
-  targetPosition: {fileID: 0}
+  targetPosition: {fileID: 8871283968979442815}
   chaseRadius: 3
   attackRadius: 0.1
-  homePosition: {fileID: 0}
+  homePosition: {fileID: 8871283968979442815}
   myAnimator: {fileID: 3035459886804676464}
   path:
   - {fileID: 0}

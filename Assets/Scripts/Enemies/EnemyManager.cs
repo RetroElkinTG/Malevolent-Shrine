@@ -20,6 +20,7 @@ public class EnemyManager : MonoBehaviour
     public string enemyName;
     public int enemyBaseDamage;
     public float enemyMovementSpeed;
+    public GameObject deathAnimation;
 
     // Set enemy health
     private void Awake()
@@ -27,24 +28,25 @@ public class EnemyManager : MonoBehaviour
         health = enemyMaxHealth.runtimeValue;
     }
 
-    // Reduce enemy health
-    private void TakeDamage(float damage) 
-    {
-        health -= damage;
-        if (health <= 0)
-        { 
-            gameObject.SetActive(false);
-        }
-    }
-
-    // Start knockback coroutine
+    // Knockback object
     public void Knockback(Rigidbody2D myRigidbody, float knockbackTime, float damage)
-    { 
+    {
         StartCoroutine(KnockbackTimeCo(myRigidbody, knockbackTime));
         TakeDamage(damage);
     }
 
-    // Stop knockback after a specified amount of time
+    // Reduce enemy health
+    private void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            DeathAnimation();
+            gameObject.SetActive(false);
+        }
+    }
+
+    // Knockback time
     private IEnumerator KnockbackTimeCo(Rigidbody2D myRigidbody, float knockbackTime)
     {
         if (myRigidbody != null)
@@ -52,6 +54,16 @@ public class EnemyManager : MonoBehaviour
             yield return new WaitForSeconds(knockbackTime);
             myRigidbody.velocity = Vector2.zero;
             currentState = EnemyState.idle;
+        }
+    }
+
+    // Death animation
+    private void DeathAnimation() 
+    {
+        if (deathAnimation != null)
+        {
+            GameObject animation = Instantiate(deathAnimation, transform.position, Quaternion.identity);
+            Destroy(animation, 1f);
         }
     }
 }

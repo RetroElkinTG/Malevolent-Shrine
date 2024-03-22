@@ -14,7 +14,7 @@ public enum PlayerState
     stagger
 }
 
-// Player movement behaviour
+// Player behaviour
 public class PlayerManager : MonoBehaviour
 {
     [Header("Movement Values")]
