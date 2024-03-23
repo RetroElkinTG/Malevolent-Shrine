@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO Fix signs not activating when player has key
+// TODO Fix signs not working when player has key
+// TODO Fix two fade panels appearing because two scene transition objects
+// TODO Add pause and menu screen
 
 // Player states
 public enum PlayerState 

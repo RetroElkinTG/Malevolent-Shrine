@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 // Room movement behaviour
-public class RoomMove : MonoBehaviour
+public class RoomTransition : MonoBehaviour
 {
     public Vector2 cameraMinChange;
     public Vector2 cameraMaxChange;
