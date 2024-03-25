@@ -5,6 +5,8 @@ using UnityEngine;
 // TODO Fix signs not working when player has key
 // TODO Fix two fade panels appearing because two scene transition objects
 // TODO Add pause and menu screen
+// TODO Add music
+// TODO Add boss fight
 
 // Player states
 public enum PlayerState 
@@ -44,7 +46,10 @@ public class PlayerManager : MonoBehaviour
     // Update is called each frame update
     void Update()
     {
-        UpdatePlayerState();
+        if (!PauseManager.gameIsPaused)
+        {
+            UpdatePlayerState();
+        }
     }
 
     // Get player components
