@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // TODO Fix signs not working when player has key
-// TODO Fix two fade panels appearing because two scene transition objects
-// TODO Add pause and menu screen
+// TODO Reset values on level restart (health, keyCount)
 // TODO Add music
 // TODO Add boss fight
 
@@ -80,7 +79,7 @@ public class PlayerManager : MonoBehaviour
         }
         else if (currentState == PlayerState.walk || currentState == PlayerState.idle)
         {
-            UpdateAnimationAndMovement();
+            UpdateAnimation();
         }
     }
 
@@ -120,11 +119,13 @@ public class PlayerManager : MonoBehaviour
     }
 
     // Update player animation and movement
-    void UpdateAnimationAndMovement()
+    void UpdateAnimation()
     {
         if (myPosition != Vector3.zero)
         {
             MoveCharacter();
+            myPosition.x = Mathf.Round(myPosition.x);
+            myPosition.y = Mathf.Round(myPosition.y);
             myAnimator.SetFloat("moveX", myPosition.x);
             myAnimator.SetFloat("moveY", myPosition.y);
             myAnimator.SetBool("moving", true);

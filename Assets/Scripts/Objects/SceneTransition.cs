@@ -22,7 +22,7 @@ public class SceneTransition : MonoBehaviour
     {
         if (fadeInPanel != null)
         {
-            GameObject panel = Instantiate(fadeInPanel, Vector3.zero, Quaternion.identity) as GameObject;
+            GameObject panel = Instantiate(fadeInPanel, Vector3.zero, Quaternion.identity);
             Destroy(panel, 1);
         }
     }
@@ -35,12 +35,12 @@ public class SceneTransition : MonoBehaviour
             playerPositionStorage.runtimePlayerPosition = playerPosition;
             playerPositionStorage.runtimeCameraMinPosition = cameraMinPosition;
             playerPositionStorage.runtimeCameraMaxPosition = cameraMaxPosition;
-            StartCoroutine(FadeCo());
+            StartCoroutine(SceneTransitionCo());
         }
     }
 
-    // Fade while loading
-    public IEnumerator FadeCo() 
+    // Transition scenes with fade
+    public IEnumerator SceneTransitionCo() 
     {
         if (fadeOutPanel != null) 
         {

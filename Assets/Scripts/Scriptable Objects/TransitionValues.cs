@@ -17,7 +17,7 @@ public class TransitionValues : ScriptableObject, ISerializationCallbackReceiver
     public Vector2 runtimeCameraMaxPosition;
     public Vector2 defaultCameraMaxPosition;
 
-    // Load values pre-runtime
+    // Set default transition values; called when program is deserialized
     public void OnAfterDeserialize()
     { 
         runtimePlayerPosition = defaultPlayerPosition;
@@ -25,7 +25,7 @@ public class TransitionValues : ScriptableObject, ISerializationCallbackReceiver
         runtimeCameraMaxPosition = defaultCameraMaxPosition;
     }
 
-    // Required for above method
+    // Required for above method; called when program is serialized
     public void OnBeforeSerialize ()
     {
 
