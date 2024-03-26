@@ -4,7 +4,7 @@ using UnityEngine;
 
 // TODO Fix signs not working when player has key
 // TODO Reset values on level restart (health, keyCount)
-// TODO Add music
+// TODO Get a YOU DIED screen then restart level
 // TODO Add boss fight
 
 // Player states
