@@ -2,12 +2,12 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 
-// Room movement behaviour
+// Room transition behaviour
 public class RoomTransition : MonoBehaviour
 {
-    [Header("Player Transition Variables")]
-    private CameraManager cameraMovement;
-    public TransitionValues startingCameraPosition;
+    [Header("Room Transition Variables")]
+    private CameraManager cameraManager;
+    public TransitionValues transitionValues;
     public Vector3 playerChange;
     public Vector2 cameraMinChange;
     public Vector2 cameraMaxChange;
@@ -17,22 +17,23 @@ public class RoomTransition : MonoBehaviour
     public TextMeshProUGUI locationText;
     public string locationName;
     public bool needText;
+    private float waitForSeconds = 4f;
 
-    // Start with getting components
+    // Get components
     void Start()
     {
-        cameraMovement = Camera.main.GetComponent<CameraManager>();
+        cameraManager = Camera.main.GetComponent<CameraManager>();
     }
 
-    // Move camera if the player moves rooms - public cameraChange set to min and max if room isn't square
+    // Change player variables on room transition
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-            cameraMovement.minPosition += cameraMinChange;
-            cameraMovement.maxPosition += cameraMaxChange;
-            startingCameraPosition.runtimeCameraMinPosition = cameraMovement.minPosition;
-            startingCameraPosition.runtimeCameraMaxPosition = cameraMovement.maxPosition;
+            cameraManager.minPosition += cameraMinChange;
+            cameraManager.maxPosition += cameraMaxChange;
+            transitionValues.runtimeCameraMinPosition = cameraManager.minPosition;
+            transitionValues.runtimeCameraMaxPosition = cameraManager.maxPosition;
             collision.transform.position += playerChange;
             if (needText)
             {
@@ -41,12 +42,12 @@ public class RoomTransition : MonoBehaviour
         }
     }
 
-    // Display location text for 4 seconds
+    // Display location name for specified time
     private IEnumerator PlaceNameCo()
     {
         locationTextObject.SetActive(true);
         locationText.text = locationName;
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(waitForSeconds);
         locationTextObject.SetActive(false);
     }
 }

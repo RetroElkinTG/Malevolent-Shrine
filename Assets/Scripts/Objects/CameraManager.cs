@@ -3,22 +3,22 @@ using UnityEngine;
 // Camera behaviour
 public class CameraManager : MonoBehaviour
 {
-    [Header("Camera Movement Variables")]
+    [Header("Camera Variables")]
     public Transform target;
     public float smoothing;
     public Vector2 minPosition;
     public Vector2 maxPosition;
 
-    [Header("Camera Position Storage Variables")]
-    public TransitionValues startingCameraPosition;
+    [Header("Scene Transition Variables")]
+    public TransitionValues transitionValues;
 
     // Set camera to player
     private void Start()
     {
-        transform.position = new Vector3(startingCameraPosition.runtimePlayerPosition.x, 
-            startingCameraPosition.runtimePlayerPosition.y, transform.position.z);
-        minPosition = startingCameraPosition.runtimeCameraMinPosition;
-        maxPosition = startingCameraPosition.runtimeCameraMaxPosition;
+        transform.position = new Vector3(transitionValues.runtimePlayerPosition.x,
+            transitionValues.runtimePlayerPosition.y, transform.position.z);
+        minPosition = transitionValues.runtimeCameraMinPosition;
+        maxPosition = transitionValues.runtimeCameraMaxPosition;
     }
 
     // Bound camera and smoothly follow player movement

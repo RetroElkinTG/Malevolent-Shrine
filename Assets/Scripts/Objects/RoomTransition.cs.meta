@@ -4,9 +4,9 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - text: {fileID: 7899687245395240592, guid: 0cc4553359ee62c4eb828da95e140a5b, type: 3}
+  - transitionValues: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}
+  - locationTextObject: {instanceID: 0}
   - locationText: {fileID: 8017317049690493144, guid: 0cc4553359ee62c4eb828da95e140a5b, type: 3}
-  - startingCameraPosition: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

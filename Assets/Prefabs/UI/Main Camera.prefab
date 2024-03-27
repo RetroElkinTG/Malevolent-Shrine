@@ -110,7 +110,7 @@ MonoBehaviour:
   smoothing: 0.2
   minPosition: {x: -10.825, y: -14.975}
   maxPosition: {x: 10.825, y: 14.975}
-  startingCameraPosition: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}
+  transitionValues: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}
 --- !u!82 &2506866655687896001
 AudioSource:
   m_ObjectHideFlags: 0

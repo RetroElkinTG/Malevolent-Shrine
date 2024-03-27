@@ -1,27 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 // Treasure chest behaviour
 public class TreasureChest : ObjectManager
 {
+    [Header("Treasure Chest Variables")]
     public Item contents;
     public Inventory inventory;
     public bool isOpen;
+    private Animator myAnimator;
+
+    [Header("Item Variables")]
     public SignalSender raiseItem;
     public GameObject dialogBox;
     public TextMeshProUGUI dialogText;
-    private Animator myAnimator;
 
-    // Start is called before the first frame update
+    // Get components
     void Start()
     {
         myAnimator = GetComponent<Animator>();
     }
 
-    // Check for interaction
+    // Raise context clue if Player enters range
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && !collision.isTrigger && !isOpen)
+        {
+            context.Raise();
+            playerInRange = true;
+        }
+    }
+
+    // Remove context clue if Player leaves range
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && !collision.isTrigger && !isOpen)
+        {
+            context.Raise();
+            playerInRange = false;
+        }
+    }
+
+    // Check for Player interaction
     void Update()
     {
         if (Input.GetButtonDown("Interact") && playerInRange)
@@ -37,7 +57,7 @@ public class TreasureChest : ObjectManager
         }
     }
 
-    // Open chest and send item to player
+    // Open chest
     public void OpenChest()
     {
         dialogBox.SetActive(true);
@@ -55,25 +75,5 @@ public class TreasureChest : ObjectManager
     {
         dialogBox.SetActive(false);
         raiseItem.Raise();
-    }
-
-    // Check if player enters range
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player") && !collision.isTrigger && !isOpen)
-        {
-            context.Raise();
-            playerInRange = true;
-        }
-    }
-
-    // Check if player leaves range
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player") && !collision.isTrigger && !isOpen)
-        {
-            context.Raise();
-            playerInRange = false;
-        }
     }
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47b085a479df1dc4eab44cbfcc2e98c5, type: 3}
-  m_Name: PlayerPosition
+  m_Name: TransitionValues
   m_EditorClassIdentifier: 
   runtimePlayerPosition: {x: 0, y: 0}
   defaultPlayerPosition: {x: 0, y: 0}

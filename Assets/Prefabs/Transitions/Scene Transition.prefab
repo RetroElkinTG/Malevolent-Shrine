@@ -94,7 +94,7 @@ MonoBehaviour:
   cameraMinPosition: {x: 0, y: 0}
   cameraMaxPosition: {x: 0, y: 0}
   playerPosition: {x: 0, y: 0}
-  playerPositionStorage: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}
+  transitionValues: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}
   fadeInPanel: {fileID: 6213899469066342374, guid: ac5ef6d7c6c45c1438f4eff901add5a9, type: 3}
   fadeOutPanel: {fileID: 6686710433991435548, guid: e18e8714ad333a045b8aeaecab05a87e, type: 3}
   fadeWait: 0.33

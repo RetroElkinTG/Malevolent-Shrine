@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO Fix signs not working when player has key
+// TODO Clean code - Player, Scrip obj, util
 // TODO Get a YOU DIED screen then restart level
-// TODO Add boss fight
+// TODO Add boss fight and return to main menu
+// TODO Add hearts
 
 // Player states
 public enum PlayerState 

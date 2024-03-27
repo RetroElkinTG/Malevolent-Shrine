@@ -1,19 +1,18 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 // Scene transition behaviour
 public class SceneTransition : MonoBehaviour
 {
-    [Header("New Scene Variables")]
+    [Header("Scene Transition Variables")]
     public string sceneToLoad;
     public Vector2 cameraMinPosition;
     public Vector2 cameraMaxPosition;
     public Vector2 playerPosition;
-    public TransitionValues playerPositionStorage;
+    public TransitionValues transitionValues;
 
-    [Header("Fade Variables")]
+    [Header("Scene Fade Variables")]
     public GameObject fadeInPanel;
     public GameObject fadeOutPanel;
     public float fadeWait;
@@ -28,14 +27,14 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
-    // Store player values on collision
+    // Store transition values on collision
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-            playerPositionStorage.runtimePlayerPosition = playerPosition;
-            playerPositionStorage.runtimeCameraMinPosition = cameraMinPosition;
-            playerPositionStorage.runtimeCameraMaxPosition = cameraMaxPosition;
+            transitionValues.runtimePlayerPosition = playerPosition;
+            transitionValues.runtimeCameraMinPosition = cameraMinPosition;
+            transitionValues.runtimeCameraMaxPosition = cameraMaxPosition;
             StartCoroutine(SceneTransitionCo());
         }
     }
