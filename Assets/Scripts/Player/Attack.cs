@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Knockback behaviour
-public class Knockback : MonoBehaviour
+// Attack behaviour
+public class Attack : MonoBehaviour
 {
+    [Header("Attack Variables")]
     public float knockback;
     public float knockbackTime;
     public float damage;
 
-    // Knockback object on hit
+    // Knockback/Break object on hit
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Breakable") && gameObject.CompareTag("Player"))
@@ -27,7 +28,7 @@ public class Knockback : MonoBehaviour
                 if (collision.gameObject.CompareTag("Enemy") && collision.isTrigger) 
                 {
                     collidedRigidbody.GetComponent<EnemyManager>().currentState = EnemyState.stagger;
-                    collision.GetComponent<EnemyManager>().Knockback(collidedRigidbody, knockbackTime, damage);
+                    collision.GetComponent<EnemyManager>().GetHit(collidedRigidbody, knockbackTime, damage);
                 }
                 if (collision.gameObject.CompareTag("Player")) 
                 {

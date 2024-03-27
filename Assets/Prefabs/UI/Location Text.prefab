@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6681777629472432313
 RectTransform:
   m_ObjectHideFlags: 0
@@ -147,9 +147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec0dac025b337554cb1aa754f8302243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraChange: {x: 0, y: 0}
+  startingCameraPosition: {fileID: 0}
   playerChange: {x: 0, y: 0, z: 0}
-  needText: 0
-  locationName: 
-  text: {fileID: 7899687245395240592}
+  cameraMinChange: {x: 0, y: 0}
+  cameraMaxChange: {x: 0, y: 0}
+  locationTextObject: {fileID: 7899687245395240592}
   locationText: {fileID: 8017317049690493144}
+  locationName: 
+  needText: 0

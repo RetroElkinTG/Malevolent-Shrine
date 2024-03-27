@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // TODO Fix signs not working when player has key
-// TODO Reset values on level restart (health, keyCount)
 // TODO Get a YOU DIED screen then restart level
 // TODO Add boss fight
 
@@ -97,27 +96,6 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    // Raise item
-    public void RaiseItem()
-    {
-        if (inventory.currentItem != null)
-        {
-            if (currentState != PlayerState.interact)
-            {
-                myAnimator.SetBool("receiveItem", true);
-                currentState = PlayerState.interact;
-                receivedItemSprite.sprite = inventory.currentItem.itemSprite;
-            }
-            else
-            {
-                myAnimator.SetBool("receiveItem", false);
-                currentState = PlayerState.idle;
-                receivedItemSprite.sprite = null;
-                inventory.currentItem = null;
-            }
-        }
-    }
-
     // Update player animation and movement
     void UpdateAnimation()
     {
@@ -166,6 +144,27 @@ public class PlayerManager : MonoBehaviour
             yield return new WaitForSeconds(knockbackTime);
             myRigidbody.velocity = Vector2.zero;
             currentState = PlayerState.idle;
+        }
+    }
+
+    // Raise item
+    public void RaiseItem()
+    {
+        if (inventory.currentItem != null)
+        {
+            if (currentState != PlayerState.interact)
+            {
+                myAnimator.SetBool("receiveItem", true);
+                currentState = PlayerState.interact;
+                receivedItemSprite.sprite = inventory.currentItem.itemSprite;
+            }
+            else
+            {
+                myAnimator.SetBool("receiveItem", false);
+                currentState = PlayerState.idle;
+                receivedItemSprite.sprite = null;
+                inventory.currentItem = null;
+            }
         }
     }
 }

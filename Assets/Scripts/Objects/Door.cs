@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 // Door types
@@ -20,7 +18,7 @@ public class Door : ObjectManager
     public SpriteRenderer doorSprite;
     public BoxCollider2D boxCollider;
 
-    // Check if player has key
+    // Check if key is in inventory
     void Update()
     {
         if (Input.GetButtonDown("Interact"))
@@ -42,11 +40,6 @@ public class Door : ObjectManager
         doorSprite.enabled = false;
         open = true;
         boxCollider.enabled = false;
-    }
-
-    // Close door
-    public void Close()
-    {
-
+        gameObject.SetActive(false);
     }
 }

@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 // Log behaviour
 public class Log : EnemyManager
 {
+    [Header("Log Movement Variables")]
     public Rigidbody2D myRigidbody;
+    public Transform homePosition;
     public Transform targetPosition;
     public float chaseRadius;
     public float attackRadius;
-    public Transform homePosition;
+
+    [Header("Log Animation Variables")]
     public Animator myAnimator;
 
-    // Start is called before the first frame update
+    // Get components
     void Start()
     {
         currentState = EnemyState.idle;
@@ -22,13 +23,13 @@ public class Log : EnemyManager
         myAnimator.SetBool("wakeUp", true);
     }
 
-    // FixedUpdate is called once per physics frame
+    // CheckDistance once per physics frame
     void FixedUpdate()
     {
         CheckDistance();
     }
 
-    // Check distance between enemy and player then move towards player
+    // Check distance to Player
     public virtual void CheckDistance()
     {
         if (Vector2.Distance(targetPosition.position, transform.position) <= chaseRadius &&
@@ -37,12 +38,8 @@ public class Log : EnemyManager
             if (currentState == EnemyState.idle || currentState == EnemyState.walk
                 && currentState != EnemyState.stagger)
             {
-                Vector3 targetDirection = Vector2.MoveTowards(transform.position, targetPosition.position,
-                    enemyMovementSpeed * Time.deltaTime);
-                UpdateAnimation(targetDirection - transform.position);
-                myRigidbody.MovePosition(targetDirection);
-                ChangeState(EnemyState.walk);
-                myAnimator.SetBool("wakeUp", true);
+                MoveTowardsPlayer();
+                UpdateState(EnemyState.walk);
             }
         }
         else if (Vector2.Distance(targetPosition.position, transform.position) > chaseRadius)
@@ -51,20 +48,30 @@ public class Log : EnemyManager
         }
     }
 
-    // Update Animation
+    // Move towards Player
+    public virtual void MoveTowardsPlayer()
+    {
+        Vector3 targetDirection = Vector2.MoveTowards(transform.position, targetPosition.position,
+                    enemyMovementSpeed * Time.deltaTime);
+        UpdateAnimation(targetDirection - transform.position);
+        myRigidbody.MovePosition(targetDirection);
+        myAnimator.SetBool("wakeUp", true);
+    }
+
+    // Update state
+    private void UpdateState(EnemyState newState)
+    {
+        if (currentState != newState)
+        {
+            currentState = newState;
+        }
+    }
+
+    // Update animation
     public void UpdateAnimation(Vector2 direction)
     { 
         direction = direction.normalized;
         myAnimator.SetFloat("moveX", direction.x);
         myAnimator.SetFloat("moveY", direction.y);
-    }
-
-    // Change enemy's state if not already in the state
-    private void ChangeState(EnemyState newState)
-    {
-        if (currentState != newState) 
-        {
-            currentState = newState;
-        }
     }
 }

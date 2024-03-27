@@ -13,6 +13,8 @@ public class PauseManager : MonoBehaviour
     public string mainMenu;
 
     public TransitionValues playerPositionStorage;
+    public Inventory inventory; 
+    public HealthValues health;
 
     public GameObject fadeInPanel;
     public GameObject fadeOutPanel;
@@ -71,6 +73,8 @@ public class PauseManager : MonoBehaviour
         playerPositionStorage.runtimePlayerPosition = playerPositionStorage.defaultPlayerPosition;
         playerPositionStorage.runtimeCameraMinPosition = playerPositionStorage.defaultCameraMinPosition;
         playerPositionStorage.runtimeCameraMaxPosition = playerPositionStorage.defaultCameraMaxPosition;
+        health.runtimeValue = health.defaultValue;
+        inventory.runtimeKeyCount = inventory.defaultKeyCount;
         Time.timeScale = 1f;
     }
 

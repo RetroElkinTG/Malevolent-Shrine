@@ -1,22 +1,22 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 // Room movement behaviour
 public class RoomTransition : MonoBehaviour
 {
+    [Header("Player Transition Variables")]
+    private CameraManager cameraMovement;
+    public TransitionValues startingCameraPosition;
+    public Vector3 playerChange;
     public Vector2 cameraMinChange;
     public Vector2 cameraMaxChange;
-    public Vector3 playerChange;
-    private CameraManager cameraMovement;
 
-    public bool needText;
-    public string locationName;
-    public GameObject text;
+    [Header("Location Variables")]
+    public GameObject locationTextObject;
     public TextMeshProUGUI locationText;
-
-    public TransitionValues startingCameraPosition;
+    public string locationName;
+    public bool needText;
 
     // Start with getting components
     void Start()
@@ -44,9 +44,9 @@ public class RoomTransition : MonoBehaviour
     // Display location text for 4 seconds
     private IEnumerator PlaceNameCo()
     {
-        text.SetActive(true);
+        locationTextObject.SetActive(true);
         locationText.text = locationName;
         yield return new WaitForSeconds(4f);
-        text.SetActive(false);
+        locationTextObject.SetActive(false);
     }
 }

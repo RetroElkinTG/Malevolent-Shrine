@@ -1,27 +1,27 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-// Behaviour for breakable objects
+// Breakable object behaviour
 public class Breakable : MonoBehaviour
 {
+    [Header("Breakable Object Variables")]
     private Animator objectAnimator;
 
-    // Start with getting object components
+    // Get components
     void Start()
     {
         objectAnimator = GetComponent<Animator>();
     }
 
-    // Break the object
+    // Break object
     public void Break() 
     {
         objectAnimator.SetBool("broken", true);
-        StartCoroutine(BreakCo());
+        StartCoroutine(BreakTimeCo());
     }
 
-    // Remove object collision
-    IEnumerator BreakCo() 
+    // Break time
+    IEnumerator BreakTimeCo() 
     {
         yield return new WaitForSeconds(.3f);
         gameObject.SetActive(false);

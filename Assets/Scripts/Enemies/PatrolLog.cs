@@ -1,15 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// Patrol Log behaviour
 public class PatrolLog : Log
 {
+    [Header("Patrol Log Variables")]
     public Transform[] path;
     public int currentPoint;
     public Transform currentGoal;
     public float roundingDistance;
 
-    // Check distance between enemy and player then move towards player
+    // Check distance to player
     public override void CheckDistance()
     {
         if (Vector2.Distance(targetPosition.position, transform.position) <= chaseRadius &&
@@ -18,22 +18,14 @@ public class PatrolLog : Log
             if (currentState == EnemyState.idle || currentState == EnemyState.walk
                 && currentState != EnemyState.stagger)
             {
-                Vector3 targetDirection = Vector2.MoveTowards(transform.position, targetPosition.position,
-                    enemyMovementSpeed * Time.deltaTime);
-                UpdateAnimation(targetDirection - transform.position);
-                myRigidbody.MovePosition(targetDirection);
-                //ChangeState(EnemyState.walk);
-                myAnimator.SetBool("wakeUp", true);
+                MoveTowardsPlayer();
             }
         }
         else if (Vector2.Distance(targetPosition.position, transform.position) > chaseRadius)
         {
             if (Vector3.Distance(transform.position, path[currentPoint].position) > roundingDistance)
             { 
-                Vector3 targetDirection = Vector2.MoveTowards(transform.position, path[currentPoint].position,
-                    enemyMovementSpeed * Time.deltaTime);
-                UpdateAnimation(targetDirection - transform.position);
-                myRigidbody.MovePosition(targetDirection);
+                MoveTowardsGoal();
             }
             else
             {
@@ -42,7 +34,16 @@ public class PatrolLog : Log
         }
     }
 
-    // Change enemy goal
+    // Move towards goal
+    private void MoveTowardsGoal()
+    {
+        Vector3 targetDirection = Vector2.MoveTowards(transform.position, path[currentPoint].position,
+                    enemyMovementSpeed * Time.deltaTime);
+        UpdateAnimation(targetDirection - transform.position);
+        myRigidbody.MovePosition(targetDirection);
+    }
+
+    // Change goal
     private void ChangeGoal()
     {
         if (currentPoint == path.Length - 1)

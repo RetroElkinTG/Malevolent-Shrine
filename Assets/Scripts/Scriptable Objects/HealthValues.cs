@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class HealthValues : ScriptableObject, ISerializationCallbackReceiver
 {
+    [Header("Health Variables")]
     [HideInInspector]
     public float runtimeValue;
     public float defaultValue;

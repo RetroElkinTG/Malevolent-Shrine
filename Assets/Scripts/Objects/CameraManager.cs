@@ -1,14 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 // Camera behaviour
 public class CameraManager : MonoBehaviour
 {
+    [Header("Camera Movement Variables")]
     public Transform target;
     public float smoothing;
     public Vector2 minPosition;
     public Vector2 maxPosition;
+
+    [Header("Camera Position Storage Variables")]
     public TransitionValues startingCameraPosition;
 
     // Set camera to player

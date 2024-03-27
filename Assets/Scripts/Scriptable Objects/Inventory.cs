@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Inventory : ScriptableObject, ISerializationCallbackReceiver
 {
+    [Header("Inventory Variables")]
     public Item currentItem;
     public List<Item> items = new List<Item>();
     [HideInInspector]

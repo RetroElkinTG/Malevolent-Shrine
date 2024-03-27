@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 // Enemy states
@@ -8,19 +7,25 @@ public enum EnemyState
     idle,
     walk,
     attack,
-    stagger,
+    stagger
 }
 
 // Enemy behaviour
 public class EnemyManager : MonoBehaviour
 {
+    [Header("Enemy State Machine")]
     public EnemyState currentState;
+
+    [Header("Enemy Statistics")]
     public HealthValues enemyMaxHealth;
-    public float health;
     public string enemyName;
+    public float health;
     public int enemyBaseDamage;
     public float enemyMovementSpeed;
+
+    [Header("Enemy Animations")]
     public GameObject deathAnimation;
+    private float deathAnimationDuration = 1f;
 
     // Set enemy health
     private void Awake()
@@ -28,22 +33,11 @@ public class EnemyManager : MonoBehaviour
         health = enemyMaxHealth.runtimeValue;
     }
 
-    // Knockback object
-    public void Knockback(Rigidbody2D myRigidbody, float knockbackTime, float damage)
+    // Enemy gets hit
+    public void GetHit(Rigidbody2D myRigidbody, float knockbackTime, float damage)
     {
         StartCoroutine(KnockbackTimeCo(myRigidbody, knockbackTime));
         TakeDamage(damage);
-    }
-
-    // Reduce enemy health
-    private void TakeDamage(float damage)
-    {
-        health -= damage;
-        if (health <= 0)
-        {
-            DeathAnimation();
-            gameObject.SetActive(false);
-        }
     }
 
     // Knockback time
@@ -57,13 +51,24 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    // Reduce enemy health
+    private void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            DeathAnimation();
+            gameObject.SetActive(false);
+        }
+    }
+
     // Death animation
     private void DeathAnimation() 
     {
         if (deathAnimation != null)
         {
             GameObject animation = Instantiate(deathAnimation, transform.position, Quaternion.identity);
-            Destroy(animation, 1f);
+            Destroy(animation, deathAnimationDuration);
         }
     }
 }

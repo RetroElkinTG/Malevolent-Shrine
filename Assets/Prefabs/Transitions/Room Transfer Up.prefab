@@ -90,11 +90,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec0dac025b337554cb1aa754f8302243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingCameraPosition: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}
+  playerChange: {x: 0, y: 2, z: 0}
   cameraMinChange: {x: 0, y: 39.95}
   cameraMaxChange: {x: 0, y: 39.95}
-  playerChange: {x: 0, y: 2, z: 0}
-  needText: 1
-  locationName: Up
-  text: {fileID: 0}
+  locationTextObject: {fileID: 7899687245395240592, guid: 0cc4553359ee62c4eb828da95e140a5b, type: 3}
   locationText: {fileID: 0}
-  startingCameraPosition: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}
+  locationName: Up
+  needText: 1
