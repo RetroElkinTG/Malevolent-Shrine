@@ -9,18 +9,14 @@ public class GameManager : MonoBehaviour
     public string overworld;
     public string mainMenu;
 
-    public TransitionValues playerPositionStorage;
+    public TransitionValues transitionValues;
+    public ObjectValues objectValues;
     public Inventory inventory; 
     public HealthValues health;
 
     public GameObject fadeInPanel;
     public GameObject fadeOutPanel;
     public float fadeWait;
-
-    void Start()
-    {
-        gameObject.SetActive(true);
-    }
 
     // Restart level
     public void RestartLevel()
@@ -39,11 +35,12 @@ public class GameManager : MonoBehaviour
     // Reset scene values
     public void ResetValues()
     {
-        playerPositionStorage.runtimePlayerPosition = playerPositionStorage.defaultPlayerPosition;
-        playerPositionStorage.runtimeCameraMinPosition = playerPositionStorage.defaultCameraMinPosition;
-        playerPositionStorage.runtimeCameraMaxPosition = playerPositionStorage.defaultCameraMaxPosition;
+        transitionValues.runtimePlayerPosition = transitionValues.defaultPlayerPosition;
+        transitionValues.runtimeCameraMinPosition = transitionValues.defaultCameraMinPosition;
+        transitionValues.runtimeCameraMaxPosition = transitionValues.defaultCameraMaxPosition;
         health.runtimeValue = health.defaultValue;
         inventory.runtimeKeyCount = inventory.defaultKeyCount;
+        objectValues.runtimeChestIsOpen = objectValues.defaultChestIsOpen;
         Time.timeScale = 1f;
     }
 

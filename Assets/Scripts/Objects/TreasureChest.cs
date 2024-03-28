@@ -4,13 +4,14 @@ using TMPro;
 // Treasure chest behaviour
 public class TreasureChest : ObjectManager
 {
-    [Header("Treasure Chest Variables")]
+    [Header("Chest Contents Variables")]
     public Item contents;
     public Inventory inventory;
+    public ObjectValues objectValues;
     public bool isOpen;
     private Animator myAnimator;
 
-    [Header("Item Variables")]
+    [Header("Dialog Variables")]
     public SignalSender raiseItem;
     public GameObject dialogBox;
     public TextMeshProUGUI dialogText;
@@ -19,6 +20,11 @@ public class TreasureChest : ObjectManager
     void Start()
     {
         myAnimator = GetComponent<Animator>();
+        isOpen = objectValues.runtimeChestIsOpen;
+        if (isOpen)
+        {
+            myAnimator.SetBool("opened", true);
+        }
     }
 
     // Raise context clue if Player enters range
@@ -67,6 +73,7 @@ public class TreasureChest : ObjectManager
         raiseItem.Raise();
         context.Raise();
         isOpen = true;
+        objectValues.runtimeChestIsOpen = isOpen;
         myAnimator.SetBool("opened", true);
     }
 

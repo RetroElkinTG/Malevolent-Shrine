@@ -1,11 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-// TODO URGENT Get a YOU DIED screen then restart level
-
-// TODO Clean code - Player, Scrip obj, util
-// TODO Add boss fight and return to main menu
-// TODO Add hearts
+// TODO Fix player too slow on Update() and input delay on FixedUpdate()
+//      it can possibly be fixed with an InputManager
+// TODO Notify that the key door is locked
+// TODO Add hearts and coins
+// TODO Fix motion blur
+// TODO More enemy types - melee enemy, bat
+// TODO More mini bosses and bosses - red tree
 
 // Player states
 public enum PlayerState 
@@ -21,7 +24,6 @@ public enum PlayerState
 public class PlayerManager : MonoBehaviour
 {
     [Header("Movement Variables")]
-    public static bool isInputEnabled = true;
     public PlayerState currentState;
     public float speed;
     private Rigidbody2D myRigidbody;
@@ -40,6 +42,7 @@ public class PlayerManager : MonoBehaviour
     [Header("Death Variables")]
     public GameManager gameManager;
     public GameObject deathAnimation;
+    public string mainMenu;
     private float deathDuration = 3f;
 
     // GetPlayerComponents on scene load
@@ -48,10 +51,10 @@ public class PlayerManager : MonoBehaviour
         GetPlayerComponents();
     }
 
-    // UpdatePlayerState if not paused and input is enabled
-    void Update()
+    // UpdatePlayerState if not paused
+    void FixedUpdate()
     {
-        if (!PauseMenu.gameIsPaused && isInputEnabled)
+        if (!PauseMenu.gameIsPaused)
         {
             UpdatePlayerState();
         }
@@ -139,10 +142,10 @@ public class PlayerManager : MonoBehaviour
         }
         else 
         {
-            isInputEnabled = false;
             PlayerDeathAnimation();
             gameObject.SetActive(false);
-            //gameManager.QuitToMainMenu();
+            gameManager.ResetValues();
+            SceneManager.LoadScene(mainMenu);
         }
     }
 

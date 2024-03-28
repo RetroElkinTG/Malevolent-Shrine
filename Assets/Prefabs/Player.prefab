@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  speed: 6
+  speed: 4
   currentPlayerHealth: {fileID: 11400000, guid: 3521a2a4e45cc7c478c91a0cdc5a9b4b, type: 2}
   currentPlayerHealthSignal: {fileID: 11400000, guid: 3bfbbb4279b33ae4ab81507b2d0a4482, type: 2}
   startingPosition: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}
@@ -409,6 +409,7 @@ MonoBehaviour:
   receivedItemSprite: {fileID: 150108530353877301}
   gameManager: {fileID: 7719045887430010262, guid: 8b5abe362d52d2c4f89c04ded9e09ee4, type: 3}
   deathAnimation: {fileID: 1990185399857122658, guid: 223645557e0960a4c80102db88b2bea8, type: 3}
+  mainMenu: MainMenu
 --- !u!61 &6265190919692155513
 BoxCollider2D:
   m_ObjectHideFlags: 0

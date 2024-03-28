@@ -116,7 +116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overworld: Overworld
   mainMenu: MainMenu
-  playerPositionStorage: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}
+  transitionValues: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}
+  objectValues: {fileID: 11400000, guid: fe5fea9a6ad97464e979b11da5f5c8ea, type: 2}
   inventory: {fileID: 11400000, guid: 787813991f4f07b4eabf123e09d647f4, type: 2}
   health: {fileID: 11400000, guid: 3521a2a4e45cc7c478c91a0cdc5a9b4b, type: 2}
   fadeInPanel: {fileID: 6213899469066342374, guid: ac5ef6d7c6c45c1438f4eff901add5a9, type: 3}

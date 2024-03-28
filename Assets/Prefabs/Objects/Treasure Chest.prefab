@@ -215,6 +215,7 @@ MonoBehaviour:
   context: {fileID: 11400000, guid: 318ded5188a1aa145bfaa9bb08b84899, type: 2}
   contents: {fileID: 11400000, guid: 677feaeb20b36b34197829ed81ae4b64, type: 2}
   inventory: {fileID: 11400000, guid: 787813991f4f07b4eabf123e09d647f4, type: 2}
+  objectValues: {fileID: 11400000, guid: fe5fea9a6ad97464e979b11da5f5c8ea, type: 2}
   isOpen: 0
   raiseItem: {fileID: 11400000, guid: 815cdffc07e005845a5ecab892db2a00, type: 2}
   dialogBox: {fileID: 0}
