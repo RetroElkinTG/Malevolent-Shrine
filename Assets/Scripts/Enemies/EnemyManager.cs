@@ -13,19 +13,19 @@ public enum EnemyState
 // Enemy behaviour
 public class EnemyManager : MonoBehaviour
 {
-    [Header("Enemy State Machine")]
+    [Header("State Variables")]
     public EnemyState currentState;
 
-    [Header("Enemy Statistics")]
+    [Header("Enemy Variables")]
     public HealthValues enemyMaxHealth;
     public string enemyName;
     public float health;
     public int enemyBaseDamage;
     public float enemyMovementSpeed;
 
-    [Header("Enemy Animations")]
+    [Header("Death Variables")]
     public GameObject deathAnimation;
-    private float deathAnimationDuration = 1f;
+    private float deathDuration = 1f;
 
     // Set enemy health
     private void Awake()
@@ -57,18 +57,18 @@ public class EnemyManager : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            DeathAnimation();
+            EnemyDeathAnimation();
             gameObject.SetActive(false);
         }
     }
 
-    // Death animation
-    private void DeathAnimation() 
+    // Enemy death animation
+    private void EnemyDeathAnimation() 
     {
         if (deathAnimation != null)
         {
             GameObject animation = Instantiate(deathAnimation, transform.position, Quaternion.identity);
-            Destroy(animation, deathAnimationDuration);
+            Destroy(animation, deathDuration);
         }
     }
 }

@@ -1,9 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// TODO URGENT Get a YOU DIED screen then restart level
+
 // TODO Clean code - Player, Scrip obj, util
-// TODO Get a YOU DIED screen then restart level
 // TODO Add boss fight and return to main menu
 // TODO Add hearts
 
@@ -20,38 +20,44 @@ public enum PlayerState
 // Player behaviour
 public class PlayerManager : MonoBehaviour
 {
-    [Header("Movement Values")]
+    [Header("Movement Variables")]
+    public static bool isInputEnabled = true;
     public PlayerState currentState;
     public float speed;
     private Rigidbody2D myRigidbody;
     private Vector3 myPosition;
     private Animator myAnimator;
 
-    [Header("Health Values")]
+    [Header("Health Variables")]
     public HealthValues currentPlayerHealth;
     public SignalSender currentPlayerHealthSignal;
     public TransitionValues startingPosition;
 
-    [Header("Inventory Values")]
+    [Header("Inventory Variables")]
     public Inventory inventory;
     public SpriteRenderer receivedItemSprite;
 
-    // Start is called before the first frame update
+    [Header("Death Variables")]
+    public GameManager gameManager;
+    public GameObject deathAnimation;
+    private float deathDuration = 3f;
+
+    // GetPlayerComponents on scene load
     void Start()
     {
         GetPlayerComponents();
     }
 
-    // Update is called each frame update
+    // UpdatePlayerState if not paused and input is enabled
     void Update()
     {
-        if (!PauseManager.gameIsPaused)
+        if (!PauseMenu.gameIsPaused && isInputEnabled)
         {
             UpdatePlayerState();
         }
     }
 
-    // Get player components
+    // Get Player components
     void GetPlayerComponents()
     {
         currentState = PlayerState.walk;
@@ -62,7 +68,7 @@ public class PlayerManager : MonoBehaviour
         transform.position = startingPosition.runtimePlayerPosition;
     }
 
-    // Update player state
+    // Update Player state
     void UpdatePlayerState()
     {
         if (currentState == PlayerState.interact)
@@ -97,12 +103,12 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    // Update player animation and movement
+    // Update animation
     void UpdateAnimation()
     {
         if (myPosition != Vector3.zero)
         {
-            MoveCharacter();
+            MovePlayer();
             myPosition.x = Mathf.Round(myPosition.x);
             myPosition.y = Mathf.Round(myPosition.y);
             myAnimator.SetFloat("moveX", myPosition.x);
@@ -115,15 +121,15 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    // Move the player in the direction of input
-    void MoveCharacter()
+    // Move the Player
+    void MovePlayer()
     {
         myPosition.Normalize();
         myRigidbody.MovePosition(transform.position + myPosition * speed * Time.deltaTime);
     }
 
-    // Reduce player health and call knockback
-    public void Knockback(float KnockbackTime, float damage)
+    // Damage and knockback Player
+    public void DamagePlayer(float KnockbackTime, float damage)
     {
         currentPlayerHealth.runtimeValue -= damage;
         currentPlayerHealthSignal.Raise();
@@ -133,7 +139,10 @@ public class PlayerManager : MonoBehaviour
         }
         else 
         {
+            isInputEnabled = false;
+            PlayerDeathAnimation();
             gameObject.SetActive(false);
+            //gameManager.QuitToMainMenu();
         }
     }
 
@@ -145,6 +154,16 @@ public class PlayerManager : MonoBehaviour
             yield return new WaitForSeconds(knockbackTime);
             myRigidbody.velocity = Vector2.zero;
             currentState = PlayerState.idle;
+        }
+    }
+
+    // Player death animation
+    private void PlayerDeathAnimation()
+    {
+        if (deathAnimation != null)
+        {
+            GameObject animation = Instantiate(deathAnimation, transform.position, Quaternion.identity);
+            Destroy(animation, deathDuration);
         }
     }
 

@@ -407,6 +407,8 @@ MonoBehaviour:
   startingPosition: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}
   inventory: {fileID: 11400000, guid: 787813991f4f07b4eabf123e09d647f4, type: 2}
   receivedItemSprite: {fileID: 150108530353877301}
+  gameManager: {fileID: 7719045887430010262, guid: 8b5abe362d52d2c4f89c04ded9e09ee4, type: 3}
+  deathAnimation: {fileID: 1990185399857122658, guid: 223645557e0960a4c80102db88b2bea8, type: 3}
 --- !u!61 &6265190919692155513
 BoxCollider2D:
   m_ObjectHideFlags: 0

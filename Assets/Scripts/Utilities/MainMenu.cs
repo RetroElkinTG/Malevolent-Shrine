@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     public GameObject fadeOutPanel;
     public float fadeWait;
 
-    public void NewGame()
+    public void StartGame()
     {
         StartCoroutine(SceneTransitionCo());
     }

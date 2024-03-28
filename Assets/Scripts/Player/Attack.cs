@@ -35,7 +35,7 @@ public class Attack : MonoBehaviour
                     if (collision.GetComponent<PlayerManager>().currentState != PlayerState.stagger) 
                     {
                         collidedRigidbody.GetComponent<PlayerManager>().currentState = PlayerState.stagger;
-                        collision.GetComponent<PlayerManager>().Knockback(knockbackTime, damage);
+                        collision.GetComponent<PlayerManager>().DamagePlayer(knockbackTime, damage);
                     }
                 }
             }
