@@ -2,8 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// TODO URGENT Fix hearts not being reset on restart
-// TODO Add coins
+// TODO Fix signs not working after chest is opened
+// TODO Add a real ending
 // TODO More enemy types - melee enemy, bat
 // TODO More mini bosses and bosses - red tree
 
@@ -41,6 +41,10 @@ public class PlayerManager : MonoBehaviour
     public GameObject deathAnimation;
     public string mainMenu;
     private float deathDuration = 3f;
+    private SpriteRenderer spriteRenderer;
+    public GameObject fadeInPanel;
+    public GameObject fadeOutPanel;
+    public float fadeWait;
 
     // GetPlayerComponents on scene load
     void Start()
@@ -63,6 +67,7 @@ public class PlayerManager : MonoBehaviour
         currentState = PlayerState.walk;
         myAnimator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         myAnimator.SetFloat("moveX", 0);
         myAnimator.SetFloat("moveY", -1);
         transform.position = startingPosition.runtimePlayerPosition;
@@ -140,9 +145,10 @@ public class PlayerManager : MonoBehaviour
         else 
         {
             PlayerDeathAnimation();
-            gameObject.SetActive(false);
+            myRigidbody.isKinematic = true;
+            spriteRenderer.enabled = false;
             gameManager.ResetValues();
-            SceneManager.LoadScene(mainMenu);
+            StartCoroutine(SceneTransitionCo(mainMenu));
         }
     }
 
@@ -164,6 +170,21 @@ public class PlayerManager : MonoBehaviour
         {
             GameObject animation = Instantiate(deathAnimation, transform.position, Quaternion.identity);
             Destroy(animation, deathDuration);
+        }
+    }
+
+    // Transition scenes from Player death
+    public IEnumerator SceneTransitionCo(string sceneToLoad)
+    {
+        if (fadeOutPanel != null)
+        {
+            Instantiate(fadeOutPanel, Vector3.zero, Quaternion.identity);
+        }
+        yield return new WaitForSeconds(fadeWait);
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneToLoad);
+        while (!asyncOperation.isDone)
+        {
+            yield return null;
         }
     }
 

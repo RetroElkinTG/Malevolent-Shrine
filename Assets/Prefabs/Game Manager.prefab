@@ -9,9 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7812305632424497766}
-  - component: {fileID: 3054381047754078459}
-  - component: {fileID: 7733822055848919041}
-  - component: {fileID: 1881451731986118457}
   - component: {fileID: 7719045887430010262}
   m_Layer: 5
   m_Name: Game Manager
@@ -20,88 +17,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &7812305632424497766
-RectTransform:
+--- !u!4 &7812305632424497766
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5280001744126722740}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
---- !u!223 &3054381047754078459
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5280001744126722740}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
---- !u!114 &7733822055848919041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5280001744126722740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
---- !u!114 &1881451731986118457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5280001744126722740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &7719045887430010262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,17 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eee829005a1ae1d42b23dab968c70684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  overworld: Overworld
-  mainMenu: MainMenu
   transitionValues: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}
-  objectValues: {fileID: 11400000, guid: fe5fea9a6ad97464e979b11da5f5c8ea, type: 2}
+  treasureChest: {fileID: 11400000, guid: fe5fea9a6ad97464e979b11da5f5c8ea, type: 2}
+  keyDoor: {fileID: 11400000, guid: abdbc79bcc1eb6c4ab9c9a9ba888e397, type: 2}
   heartPickups:
   - {fileID: 11400000, guid: e0105c9553aacce45a63f2eb55cfd41a, type: 2}
   - {fileID: 11400000, guid: 59f4ee10bb58dd34a8ddd03a6e0a0c05, type: 2}
   - {fileID: 11400000, guid: 61cf52528a7b333479b8e53709bca349, type: 2}
   - {fileID: 11400000, guid: 9b2c91f1ce9f0aa47b3bf7aaf7793b96, type: 2}
   inventory: {fileID: 11400000, guid: 787813991f4f07b4eabf123e09d647f4, type: 2}
-  health: {fileID: 11400000, guid: 3521a2a4e45cc7c478c91a0cdc5a9b4b, type: 2}
+  playerHealth: {fileID: 11400000, guid: 3521a2a4e45cc7c478c91a0cdc5a9b4b, type: 2}
+  overworld: Overworld
+  mainMenu: MainMenu
   fadeInPanel: {fileID: 6213899469066342374, guid: ac5ef6d7c6c45c1438f4eff901add5a9, type: 3}
   fadeOutPanel: {fileID: 6686710433991435548, guid: e18e8714ad333a045b8aeaecab05a87e, type: 3}
   fadeWait: 0.33

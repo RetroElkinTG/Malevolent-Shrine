@@ -9,6 +9,9 @@ public class ObjectValues : ScriptableObject, ISerializationCallbackReceiver
     public bool runtimeChestIsOpen;
     public bool defaultChestIsOpen;
     [HideInInspector]
+    public bool runtimeDoorIsOpen;
+    public bool defaultDoorIsOpen;
+    [HideInInspector]
     public bool runtimeHeartIsPickedUp;
     public bool defaultHeartIsPickedUp;
 
@@ -16,6 +19,7 @@ public class ObjectValues : ScriptableObject, ISerializationCallbackReceiver
     public void OnAfterDeserialize()
     {
         runtimeChestIsOpen = defaultChestIsOpen;
+        runtimeDoorIsOpen = defaultDoorIsOpen;
         runtimeHeartIsPickedUp = defaultHeartIsPickedUp;
     }
 

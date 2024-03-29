@@ -5,15 +5,17 @@ using UnityEngine.SceneManagement;
 // Game manager behaviour
 public class GameManager : MonoBehaviour
 {
-    public string overworld;
-    public string mainMenu;
-
+    [Header("Game Variables")]
     public TransitionValues transitionValues;
-    public ObjectValues objectValues;
+    public ObjectValues treasureChest;
+    public ObjectValues keyDoor;
     public ObjectValues[] heartPickups;
     public Inventory inventory; 
-    public HealthValues health;
+    public HealthValues playerHealth;
 
+    [Header("Scene Transition Variables")]
+    public string overworld;
+    public string mainMenu;
     public GameObject fadeInPanel;
     public GameObject fadeOutPanel;
     public float fadeWait;
@@ -38,18 +40,20 @@ public class GameManager : MonoBehaviour
         transitionValues.runtimePlayerPosition = transitionValues.defaultPlayerPosition;
         transitionValues.runtimeCameraMinPosition = transitionValues.defaultCameraMinPosition;
         transitionValues.runtimeCameraMaxPosition = transitionValues.defaultCameraMaxPosition;
-        health.runtimeValue = health.defaultValue;
+        playerHealth.runtimeValue = playerHealth.defaultValue;
         inventory.runtimeKeyCount = inventory.defaultKeyCount;
-        objectValues.runtimeChestIsOpen = objectValues.defaultChestIsOpen;
-        for (int index = 0; index < heartPickups.Length; index++)
+        treasureChest.runtimeChestIsOpen = treasureChest.defaultChestIsOpen;
+        keyDoor.runtimeDoorIsOpen = keyDoor.defaultDoorIsOpen;
+        foreach (ObjectValues heartPickup in heartPickups)
         {
-            heartPickups[index].runtimeHeartIsPickedUp = heartPickups[index].defaultHeartIsPickedUp;
+            heartPickup.runtimeHeartIsPickedUp = heartPickup.defaultHeartIsPickedUp;
+
         }
         Time.timeScale = 1f;
     }
 
-    // Transition scenes
-    public IEnumerator SceneTransitionCo(string sceneToLoad)
+    // Transition scenes from menu
+    private IEnumerator SceneTransitionCo(string sceneToLoad)
     {
         if (fadeOutPanel != null)
         {

@@ -224,7 +224,8 @@ MonoBehaviour:
   playerInRange: 0
   context: {fileID: 11400000, guid: 318ded5188a1aa145bfaa9bb08b84899, type: 2}
   myDoorType: 0
-  open: 0
+  isOpen: 0
   inventory: {fileID: 11400000, guid: 787813991f4f07b4eabf123e09d647f4, type: 2}
+  objectValues: {fileID: 11400000, guid: abdbc79bcc1eb6c4ab9c9a9ba888e397, type: 2}
   doorSprite: {fileID: 1748608717561574333}
   boxCollider: {fileID: 2606595543269736493}

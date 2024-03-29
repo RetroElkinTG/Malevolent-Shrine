@@ -555,12 +555,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fbaaa0af341aaa46b30a0f41db98e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionValues: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}
+  treasureChest: {fileID: 11400000, guid: fe5fea9a6ad97464e979b11da5f5c8ea, type: 2}
+  keyDoor: {fileID: 11400000, guid: abdbc79bcc1eb6c4ab9c9a9ba888e397, type: 2}
+  heartPickups:
+  - {fileID: 11400000, guid: e0105c9553aacce45a63f2eb55cfd41a, type: 2}
+  - {fileID: 11400000, guid: 59f4ee10bb58dd34a8ddd03a6e0a0c05, type: 2}
+  - {fileID: 11400000, guid: 61cf52528a7b333479b8e53709bca349, type: 2}
+  - {fileID: 11400000, guid: 9b2c91f1ce9f0aa47b3bf7aaf7793b96, type: 2}
+  inventory: {fileID: 11400000, guid: 787813991f4f07b4eabf123e09d647f4, type: 2}
+  playerHealth: {fileID: 11400000, guid: 3521a2a4e45cc7c478c91a0cdc5a9b4b, type: 2}
   overworld: Overworld
   mainMenu: MainMenu
-  transitionValues: {fileID: 11400000, guid: 87a98ea331d9c9741bfe73bf0102e9c0, type: 2}
-  objectValues: {fileID: 11400000, guid: fe5fea9a6ad97464e979b11da5f5c8ea, type: 2}
-  inventory: {fileID: 11400000, guid: 787813991f4f07b4eabf123e09d647f4, type: 2}
-  health: {fileID: 11400000, guid: 3521a2a4e45cc7c478c91a0cdc5a9b4b, type: 2}
   fadeInPanel: {fileID: 6213899469066342374, guid: ac5ef6d7c6c45c1438f4eff901add5a9, type: 3}
   fadeOutPanel: {fileID: 6686710433991435548, guid: e18e8714ad333a045b8aeaecab05a87e, type: 3}
   fadeWait: 0.33

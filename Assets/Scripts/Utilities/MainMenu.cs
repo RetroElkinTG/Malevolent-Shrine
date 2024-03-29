@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,8 +15,8 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(SceneTransitionCo());
     }
 
-    // Transition scenes with fade
-    public IEnumerator SceneTransitionCo()
+    // Transition scenes from main menu
+    private IEnumerator SceneTransitionCo()
     {
         if (fadeOutPanel != null)
         {
