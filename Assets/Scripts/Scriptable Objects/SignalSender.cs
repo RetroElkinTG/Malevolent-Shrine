@@ -11,7 +11,7 @@ public class SignalSender : ScriptableObject
     // Call OnSignalRaised function for each listener
     public void Raise()
     {
-        for (int index = listeners.Count - 1; index >= 0; index --) 
+        for (int index = listeners.Count - 1; index >= 0; index--) 
         {
             listeners[index].OnSignalRaised();
         }

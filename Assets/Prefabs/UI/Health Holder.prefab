@@ -467,7 +467,7 @@ MonoBehaviour:
   quarterHeart: {fileID: -995140401, guid: 197c513cb9fc86a429f665194ad1560e, type: 3}
   emptyHeart: {fileID: -1417895185, guid: 197c513cb9fc86a429f665194ad1560e, type: 3}
   heartContainers: {fileID: 11400000, guid: c949e789656f63646869f27e4f598264, type: 2}
-  currentPlayerHealth: {fileID: 11400000, guid: 3521a2a4e45cc7c478c91a0cdc5a9b4b, type: 2}
+  playerHealth: {fileID: 11400000, guid: 3521a2a4e45cc7c478c91a0cdc5a9b4b, type: 2}
 --- !u!1 &8544065444790414799
 GameObject:
   m_ObjectHideFlags: 0

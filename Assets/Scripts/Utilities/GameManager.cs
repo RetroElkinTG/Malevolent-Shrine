@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     public TransitionValues transitionValues;
     public ObjectValues objectValues;
+    public ObjectValues[] heartPickups;
     public Inventory inventory; 
     public HealthValues health;
 
@@ -41,6 +41,10 @@ public class GameManager : MonoBehaviour
         health.runtimeValue = health.defaultValue;
         inventory.runtimeKeyCount = inventory.defaultKeyCount;
         objectValues.runtimeChestIsOpen = objectValues.defaultChestIsOpen;
+        for (int index = 0; index < heartPickups.Length; index++)
+        {
+            heartPickups[index].runtimeHeartIsPickedUp = heartPickups[index].defaultHeartIsPickedUp;
+        }
         Time.timeScale = 1f;
     }
 

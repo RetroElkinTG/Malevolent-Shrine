@@ -2,11 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// TODO Fix player too slow on Update() and input delay on FixedUpdate()
-//      it can possibly be fixed with an InputManager
-// TODO Notify that the key door is locked
-// TODO Add hearts and coins
-// TODO Fix motion blur
+// TODO URGENT Fix hearts not being reset on restart
+// TODO Add coins
 // TODO More enemy types - melee enemy, bat
 // TODO More mini bosses and bosses - red tree
 
