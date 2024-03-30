@@ -2,9 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// TODO Add a real ending
-// TODO More enemy types - melee enemy, bat
-// TODO More mini bosses and bosses - red tree
+// TODO More enemy types - orc, turret
+// TODO More mini bosses and bosses - red tree, red log
 
 // Player states
 public enum PlayerState 
