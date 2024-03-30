@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 // Camera behaviour
@@ -8,6 +9,7 @@ public class CameraManager : MonoBehaviour
     public float smoothing;
     public Vector2 minPosition;
     public Vector2 maxPosition;
+    public Animator myAnimator;
 
     [Header("Scene Transition Variables")]
     public TransitionValues transitionValues;
@@ -15,6 +17,7 @@ public class CameraManager : MonoBehaviour
     // Set camera to player
     private void Start()
     {
+        myAnimator = GetComponent<Animator>();
         transform.position = new Vector3(transitionValues.runtimePlayerPosition.x,
             transitionValues.runtimePlayerPosition.y, transform.position.z);
         minPosition = transitionValues.runtimeCameraMinPosition;
@@ -31,5 +34,17 @@ public class CameraManager : MonoBehaviour
             targetPosition.y = Mathf.Clamp(targetPosition.y, minPosition.y, maxPosition.y);
             transform.position = Vector3.Lerp(transform.position, targetPosition, smoothing);
         }
+    }
+
+    public void ScreenKick()
+    {
+        myAnimator.SetBool("kickActive", true);
+        StartCoroutine(ScreenKickCo());
+    }
+
+    public IEnumerator ScreenKickCo()
+    {
+        yield return null;
+        myAnimator.SetBool("kickActive", false);
     }
 }

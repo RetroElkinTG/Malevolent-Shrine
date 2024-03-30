@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// TODO Fix signs not working after chest is opened
 // TODO Add a real ending
 // TODO More enemy types - melee enemy, bat
 // TODO More mini bosses and bosses - red tree
@@ -24,13 +23,14 @@ public class PlayerManager : MonoBehaviour
     public PlayerState currentState;
     public float speed;
     private Rigidbody2D myRigidbody;
+    public TransitionValues startingPosition;
     private Vector3 myPosition;
     private Animator myAnimator;
 
     [Header("Health Variables")]
     public HealthValues currentPlayerHealth;
     public SignalSender currentPlayerHealthSignal;
-    public TransitionValues startingPosition;
+    public SignalSender screenKickSignal;
 
     [Header("Inventory Variables")]
     public Inventory inventory;
@@ -52,12 +52,19 @@ public class PlayerManager : MonoBehaviour
         GetPlayerComponents();
     }
 
+    void Update()
+    {
+        if (!PauseMenu.gameIsPaused)
+        {
+            UpdatePlayerAttack();
+        }
+    }
     // UpdatePlayerState if not paused
     void FixedUpdate()
     {
         if (!PauseMenu.gameIsPaused)
         {
-            UpdatePlayerState();
+            UpdatePlayerMovement();
         }
     }
 
@@ -73,8 +80,18 @@ public class PlayerManager : MonoBehaviour
         transform.position = startingPosition.runtimePlayerPosition;
     }
 
-    // Update Player state
-    void UpdatePlayerState()
+    // Update Player attack
+    void UpdatePlayerAttack()
+    {
+        if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack
+            && currentState != PlayerState.stagger)
+        {
+            StartCoroutine(AttackCo());
+        }
+    }
+
+    // Update Player movement
+    void UpdatePlayerMovement()
     {
         if (currentState == PlayerState.interact)
         {
@@ -83,12 +100,7 @@ public class PlayerManager : MonoBehaviour
         myPosition = Vector2.zero;
         myPosition.x = Input.GetAxisRaw("Horizontal");
         myPosition.y = Input.GetAxisRaw("Vertical");
-        if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack
-            && currentState != PlayerState.stagger)
-        {
-            StartCoroutine(AttackCo());
-        }
-        else if (currentState == PlayerState.walk || currentState == PlayerState.idle)
+        if (currentState != PlayerState.stagger)
         {
             UpdateAnimation();
         }
@@ -146,6 +158,7 @@ public class PlayerManager : MonoBehaviour
         {
             PlayerDeathAnimation();
             myRigidbody.isKinematic = true;
+            myRigidbody.velocity = Vector2.zero;
             spriteRenderer.enabled = false;
             gameManager.ResetValues();
             StartCoroutine(SceneTransitionCo(mainMenu));
@@ -155,6 +168,7 @@ public class PlayerManager : MonoBehaviour
     // Stop knockback after a specified amount of time
     private IEnumerator KnockbackTimeCo(float knockbackTime)
     {
+        screenKickSignal.Raise();
         if (myRigidbody != null)
         {
             yield return new WaitForSeconds(knockbackTime);
