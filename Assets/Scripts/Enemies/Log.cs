@@ -20,7 +20,6 @@ public class Log : EnemyManager
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         targetPosition = GameObject.FindWithTag("Player").transform;
-        myAnimator.SetBool("wakeUp", true);
     }
 
     // CheckDistance once per physics frame
@@ -38,8 +37,9 @@ public class Log : EnemyManager
             if (currentState == EnemyState.idle || currentState == EnemyState.walk
                 && currentState != EnemyState.stagger)
             {
-                MoveTowardsPlayer();
                 UpdateState(EnemyState.walk);
+                myAnimator.SetBool("wakeUp", true);
+                MoveTowardsPlayer();
             }
         }
         else if (Vector2.Distance(targetPosition.position, transform.position) > chaseRadius)
@@ -55,11 +55,10 @@ public class Log : EnemyManager
                     enemyMovementSpeed * Time.deltaTime);
         UpdateAnimation(targetDirection - transform.position);
         myRigidbody.MovePosition(targetDirection);
-        myAnimator.SetBool("wakeUp", true);
     }
 
     // Update state
-    private void UpdateState(EnemyState newState)
+    public void UpdateState(EnemyState newState)
     {
         if (currentState != newState)
         {

@@ -237,25 +237,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 703570526031407779}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb762246d22e3e041b34fdbb8c5f23a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 870bfa154f134b44cb3d078396d9675a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
   enemyMaxHealth: {fileID: 11400000, guid: 5d878fb2db4c495449b11276c60b1433, type: 2}
-  enemyName: Patrolium
+  enemyName: 
   health: 5
-  enemyBaseDamage: 1
+  enemyBaseDamage: 2
   enemyMovementSpeed: 3
   deathAnimation: {fileID: 1990185399857122658, guid: 223645557e0960a4c80102db88b2bea8, type: 3}
   myRigidbody: {fileID: 8716139808457578936}
   homePosition: {fileID: 8871283968979442815}
-  targetPosition: {fileID: 8871283968979442815}
+  targetPosition: {fileID: 4080768988741967985, guid: 9960f888ed598ca47b2c56d97c53c294, type: 3}
   chaseRadius: 5.5
   attackRadius: 0.1
   myAnimator: {fileID: 3035459886804676464}
-  path:
-  - {fileID: 0}
-  - {fileID: 0}
+  path: []
   currentPoint: 0
   currentGoal: {fileID: 0}
   roundingDistance: 0.1

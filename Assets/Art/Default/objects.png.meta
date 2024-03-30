@@ -648,7 +648,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects_25
+      name: bullet
       rect:
         serializedVersion: 2
         x: 260
@@ -2947,6 +2947,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      bullet: -9232674
       fire_1: -115278359
       fire_10: -1898468946
       fire_11: 1250036963
@@ -3040,7 +3041,6 @@ TextureImporter:
       objects_22: 1131066481
       objects_23: 1618143567
       objects_24: 1897514208
-      objects_25: -9232674
       objects_26: -134569664
       objects_27: 106400291
       objects_28: 1743574490

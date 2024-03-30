@@ -2,8 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// TODO More enemy types - orc, turret
-// TODO More mini bosses and bosses - red tree, red log
+// TODO Add sound effects
+// TODO More enemy types - orc, red tree
+// TODO Code cleanup
 
 // Player states
 public enum PlayerState 
@@ -83,7 +84,7 @@ public class PlayerManager : MonoBehaviour
     void UpdatePlayerAttack()
     {
         if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack
-            && currentState != PlayerState.stagger)
+            && currentState != PlayerState.stagger && currentState != PlayerState.interact)
         {
             StartCoroutine(AttackCo());
         }
@@ -145,13 +146,13 @@ public class PlayerManager : MonoBehaviour
     }
 
     // Damage and knockback Player
-    public void DamagePlayer(float KnockbackTime, float damage)
+    public void DamagePlayer(float knockbackTime, float damage)
     {
         currentPlayerHealth.runtimeValue -= damage;
         currentPlayerHealthSignal.Raise();
         if (currentPlayerHealth.runtimeValue > 0) 
         {
-            StartCoroutine(KnockbackTimeCo(KnockbackTime));
+            StartCoroutine(KnockbackTimeCo(knockbackTime));
         }
         else 
         {
