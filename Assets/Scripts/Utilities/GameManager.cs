@@ -2,13 +2,69 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// TODO Add custom keybinds
-// TODO Add sound effects
-// TODO Add more enemy types - orc, red tree
-// TODO Add enemy hit indication
-// TODO Add new fonts
-// TODO Add rendering for tall objects by putting them on new layer
-// TODO Add hover effect/highlight menu items
+/*
+ ___ ___   ____  _        ___ __ __   ___   _        ___  ____   ______ 
+|   |   | /    || |      /  _]  |  | /   \ | |      /  _]|    \ |      |
+| _   _ ||  o  || |     /  [_|  |  ||     || |     /  [_ |  _  ||      |
+|  \_/  ||     || |___ |    _]  |  ||  O  || |___ |    _]|  |  ||_|  |_|
+|   |   ||  _  ||     ||   [_|  :  ||     ||     ||   [_ |  |  |  |  |  
+|   |   ||  |  ||     ||     |\   / |     ||     ||     ||  |  |  |  |  
+|___|___||__|__||_____||_____| \_/   \___/ |_____||_____||__|__|  |__|  
+                                                                        
+                  _____ __ __  ____   ____  ____     ___ 
+                 / ___/|  |  ||    \ |    ||    \   /  _]
+                (   \_ |  |  ||  D  ) |  | |  _  | /  [_ 
+                 \__  ||  _  ||    /  |  | |  |  ||    _]
+                 /  \ ||  |  ||    \  |  | |  |  ||   [_ 
+                 \    ||  |  ||  .  \ |  | |  |  ||     |
+                  \___||__|__||__|\_||____||__|__||_____|
+                                         
+                                         .""--..__
+                     _                     []       ``-.._
+                  .'` `'.                  ||__           `-._
+                 /    ,-.\                 ||_ ```---..__     `-.
+                /    /:::\\               /|//}          ``--._  `.
+                |    |:::||              |////}                `-. \
+                |    |:::||             //'///                    `.\
+                |    |:::||            //  ||'                      `|
+                /    |:::|/        _,-//\  ||
+               /`    |:::|`-,__,-'`  |/  \ ||
+             /`  |   |'' ||           \   |||
+           /`    \   |   ||            |  /||
+         |`       |  |   |)            \ | ||
+        |          \ |   /      ,.__    \| ||
+        /           `         /`    `\   | ||
+       |                     /        \  / ||
+       |                     |        | /  ||
+       /         /           |        `(   ||
+      /          .           /          )  ||
+     |            \          |     ________||
+    /             |          /     `-------.|
+   |\            /          |              ||
+   \/`-._       |           /              ||
+    //   `.    /`           |              ||
+   //`.    `. |             \              ||
+  ///\ `-._  )/             |              ||
+ //// )   .(/               |              ||
+ ||||   ,'` )               /              //
+ ||||  /                    /             || 
+ `\\` /`                    |             // 
+     |`                     \            ||  
+    /                        |           //  
+  /`                          \         //   
+/`                            |        ||    
+`-.___,-.      .-.        ___,'        (/    
+         `---'`   `'----'`
+Future Updates:
+- Custom keybinds
+- Sound effects
+- More enemy types - Orc, Red tree
+- Unique boss mechanics
+- Enemy hit indication
+- Custom pixel fonts
+- New layer for 2D verticality - Objects in front of player
+- Highlighting menu items
+*/
 
 // Game manager behaviour
 public class GameManager : MonoBehaviour

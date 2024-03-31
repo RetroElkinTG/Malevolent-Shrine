@@ -294,6 +294,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2204716329087627417, guid: f8cbdb299aa72074890334bbd47dbfa7, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 2204716329087627417, guid: f8cbdb299aa72074890334bbd47dbfa7, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4364887842506239014, guid: f8cbdb299aa72074890334bbd47dbfa7, type: 3}
       propertyPath: m_Name
       value: Dialog Box
