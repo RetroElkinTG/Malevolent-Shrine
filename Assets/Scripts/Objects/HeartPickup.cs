@@ -1,8 +1,9 @@
 using UnityEngine;
 
-// Heart behaviour
+// Heart pickup behaviour
 public class HeartPickup : PickupManager
 {
+    [Header("Heart Pickup Variables")]
     public HealthValues playerHealth;
     public HealthValues heartContainers;
     public ObjectValues objectValues;
@@ -10,6 +11,7 @@ public class HeartPickup : PickupManager
     public int healthPerHeartContainer;
     public bool isPickedUp;
 
+    // Disable heart if already picked up
     private void Start()
     {
         isPickedUp = objectValues.runtimeHeartIsPickedUp;

@@ -1,18 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class RockProjectile : Projectile
+// Rock projectile behaviour
+public class RockProjectile : ProjectileManager
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("Rock Projectile Variables")]
+    private bool isDamaging;
+    // This script is required so that the game can be scaled in the future
 }

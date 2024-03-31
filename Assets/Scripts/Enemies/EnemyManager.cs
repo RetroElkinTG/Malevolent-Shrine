@@ -40,7 +40,7 @@ public class EnemyManager : MonoBehaviour
         TakeDamage(damage);
     }
 
-    // Knockback time
+    // Knockback time coroutine
     private IEnumerator KnockbackTimeCo(Rigidbody2D myRigidbody, float knockbackTime)
     {
         if (myRigidbody != null)
@@ -51,24 +51,24 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    // Reduce enemy health
+    // Enemy takes damage
     private void TakeDamage(float damage)
     {
         health -= damage;
         if (health <= 0)
         {
-            EnemyDeathAnimation();
-            gameObject.SetActive(false);
+            KillEnemy();
         }
     }
 
-    // Enemy death animation
-    private void EnemyDeathAnimation() 
+    // Kill enemy
+    private void KillEnemy() 
     {
         if (deathAnimation != null)
         {
             GameObject animation = Instantiate(deathAnimation, transform.position, Quaternion.identity);
             Destroy(animation, deathDuration);
         }
+        gameObject.SetActive(false);
     }
 }

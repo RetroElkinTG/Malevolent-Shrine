@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-// Heart values
+// Health values
 [CreateAssetMenu]
 public class HealthValues : ScriptableObject, ISerializationCallbackReceiver
 {
@@ -11,13 +9,13 @@ public class HealthValues : ScriptableObject, ISerializationCallbackReceiver
     public float runtimeValue;
     public float defaultValue;
 
-    // Load transition values pre-runtime
+    // Set health values for scriptable objects; called when program is deserialized
     public void OnAfterDeserialize()
     {
         runtimeValue = defaultValue;
     }
 
-    // Required for above method
+    // Required for above method; called when program is serialized
     public void OnBeforeSerialize() 
     { 
 

@@ -13,7 +13,7 @@ public class Log : EnemyManager
     [Header("Log Animation Variables")]
     public Animator myAnimator;
 
-    // Get components
+    // Get Log components
     void Start()
     {
         currentState = EnemyState.idle;
@@ -22,7 +22,7 @@ public class Log : EnemyManager
         targetPosition = GameObject.FindWithTag("Player").transform;
     }
 
-    // CheckDistance once per physics frame
+    // CheckDistance per physics frame
     void FixedUpdate()
     {
         CheckDistance();

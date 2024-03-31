@@ -2,6 +2,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// TODO Add custom keybinds
+// TODO Add sound effects
+// TODO Add more enemy types - orc, red tree
+// TODO Add enemy hit indication
+// TODO Add new fonts
+// TODO Add rendering for tall objects by putting them on new layer
+// TODO Add hover effect/highlight menu items
+
 // Game manager behaviour
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +18,7 @@ public class GameManager : MonoBehaviour
     public ObjectValues treasureChest;
     public ObjectValues keyDoor;
     public ObjectValues[] heartPickups;
-    public Inventory inventory; 
+    public InventoryValues inventory; 
     public HealthValues playerHealth;
 
     [Header("Scene Transition Variables")]
@@ -23,19 +31,19 @@ public class GameManager : MonoBehaviour
     // Restart level
     public void RestartLevel()
     {
-        ResetValues();
+        ResetVariables();
         StartCoroutine(SceneTransitionCo(overworld));
     }
 
     // Quit to main menu
     public void QuitToMainMenu()
     {
-        ResetValues();
+        ResetVariables();
         StartCoroutine(SceneTransitionCo(mainMenu));
     }
 
-    // Reset scene values
-    public void ResetValues()
+    // Reset game variables
+    public void ResetVariables()
     {
         transitionValues.runtimePlayerPosition = transitionValues.defaultPlayerPosition;
         transitionValues.runtimeCameraMinPosition = transitionValues.defaultCameraMinPosition;
@@ -52,7 +60,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    // Transition scenes from menu
+    // Scene transition coroutine from pause menu
     private IEnumerator SceneTransitionCo(string sceneToLoad)
     {
         if (fadeOutPanel != null)

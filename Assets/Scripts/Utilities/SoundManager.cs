@@ -4,11 +4,12 @@ using UnityEngine.UI;
 // Sound Behaviour
 public class SoundManager : MonoBehaviour
 {
+    [Header("Sound Variables")]
     public Slider volumeSlider;
     private string musicVolume = "musicVolume";
     private float maxVolume = 1;
 
-    // Get components
+    // Get sound components
     void Start()
     {
         if (!PlayerPrefs.HasKey(musicVolume))
@@ -35,7 +36,7 @@ public class SoundManager : MonoBehaviour
         PlayerPrefs.SetFloat(musicVolume, volumeSlider.value);
     }
 
-    // Load Preferences
+    // Load preferences
     private void LoadPreferences()
     {
         volumeSlider.value = PlayerPrefs.GetFloat(musicVolume);

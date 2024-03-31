@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+// Projectile behaviour
+public class ProjectileManager : MonoBehaviour
 {
     [Header("Projectile Variables")]
     public float speed;
@@ -11,7 +10,7 @@ public class Projectile : MonoBehaviour
     public float defaultShotDuration;
     public Rigidbody2D myRigidbody;
 
-    // Start is called before the first frame update
+    // Get projectile components
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -28,7 +27,7 @@ public class Projectile : MonoBehaviour
         }
     }
     
-    // Launch projectile
+    // Shoot projectile
     public void Shoot(Vector2 targetDirection)
     {
         myRigidbody.velocity = targetDirection * speed;

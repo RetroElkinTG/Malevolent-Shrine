@@ -5,17 +5,19 @@ using UnityEngine.SceneManagement;
 // Main menu behaviour
 public class MainMenu : MonoBehaviour
 {
+    [Header("Main Menu Variables")]
     public string sceneToLoad;
     public GameObject fadeInPanel;
     public GameObject fadeOutPanel;
     public float fadeWait;
 
+    // Start game
     public void StartGame()
     {
         StartCoroutine(SceneTransitionCo());
     }
 
-    // Transition scenes from main menu
+    // Scene transition coroutine from main menu
     private IEnumerator SceneTransitionCo()
     {
         if (fadeOutPanel != null)
@@ -30,6 +32,7 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    // Quit application
     public void Quit()
     {
         Application.Quit();

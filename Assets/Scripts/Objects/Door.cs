@@ -13,12 +13,13 @@ public class Door : ObjectManager
 {
     [Header("Door Variables")]
     public DoorType myDoorType;
-    public bool isOpen = false;
-    public Inventory inventory;
+    public bool isOpen;
+    public InventoryValues inventory;
     public ObjectValues objectValues;
     public SpriteRenderer doorSprite;
     public BoxCollider2D boxCollider;
 
+    // Disable door if already opened
     void Start()
     {
         isOpen = objectValues.runtimeDoorIsOpen;
@@ -30,24 +31,30 @@ public class Door : ObjectManager
         }
     }
 
-    // Check if key is in inventory
+    // CheckForKey each frame update
     void Update()
     {
+        CheckForKey();
+    }
+
+    // Check if Player has key
+    public void CheckForKey()
+    {
         if (Input.GetButtonDown("Interact"))
-        { 
+        {
             if (playerInRange && myDoorType == DoorType.key)
             {
                 if (inventory.runtimeKeyCount > 0)
                 {
                     inventory.runtimeKeyCount--;
-                    Open();
+                    OpenDoor();
                 }
             }
         }
     }
 
     // Open door
-    public void Open() 
+    public void OpenDoor() 
     {
         isOpen = true;
         objectValues.runtimeDoorIsOpen = isOpen;

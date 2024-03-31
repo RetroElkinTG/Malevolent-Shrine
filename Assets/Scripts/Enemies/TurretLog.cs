@@ -3,6 +3,7 @@ using UnityEngine;
 // Turret log behaviour
 public class TurretLog : Log
 {
+    [Header("Turret Log Variables")]
     public GameObject projectile;
     public float shotDelay;
     private float shotDelaySeconds;
@@ -30,10 +31,7 @@ public class TurretLog : Log
             {
                 if (canShoot)
                 {
-                    Vector3 targetDirection = targetPosition.transform.position - transform.position;
-                    GameObject currentProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
-                    currentProjectile.GetComponent<Projectile>().Shoot(targetDirection);
-                    canShoot = false;
+                    ShootProjectile();
                     UpdateState(EnemyState.walk);
                     myAnimator.SetBool("wakeUp", true);
                 }
@@ -43,5 +41,14 @@ public class TurretLog : Log
         {
             myAnimator.SetBool("wakeUp", false);
         }
+    }
+
+    // Shoot projectile
+    public void ShootProjectile()
+    {
+        Vector3 targetDirection = targetPosition.transform.position - transform.position;
+        GameObject currentProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
+        currentProjectile.GetComponent<ProjectileManager>().Shoot(targetDirection);
+        canShoot = false;
     }
 }

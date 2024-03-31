@@ -2,10 +2,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// TODO Add sound effects
-// TODO More enemy types - orc, red tree
-// TODO Code cleanup
-
 // Player states
 public enum PlayerState 
 { 
@@ -33,38 +29,40 @@ public class PlayerManager : MonoBehaviour
     public SignalSender screenKickSignal;
 
     [Header("Inventory Variables")]
-    public Inventory inventory;
+    public InventoryValues inventory;
     public SpriteRenderer receivedItemSprite;
 
     [Header("Death Variables")]
+    public string mainMenu;
     public GameManager gameManager;
     public GameObject deathAnimation;
-    public string mainMenu;
     private float deathDuration = 3f;
     private SpriteRenderer spriteRenderer;
     public GameObject fadeInPanel;
     public GameObject fadeOutPanel;
     public float fadeWait;
 
-    // GetPlayerComponents on scene load
+    // GetPlayerComponents before the first frame update
     void Start()
     {
         GetPlayerComponents();
     }
 
-    void Update()
-    {
-        if (!PauseMenu.gameIsPaused)
-        {
-            UpdatePlayerAttack();
-        }
-    }
-    // UpdatePlayerState if not paused
+    // UpdatePlayerMovement each physics frame update
     void FixedUpdate()
     {
         if (!PauseMenu.gameIsPaused)
         {
             UpdatePlayerMovement();
+        }
+    }
+
+    // UpdatePlayerAttack each frame update
+    void Update()
+    {
+        if (!PauseMenu.gameIsPaused)
+        {
+            UpdatePlayerAttack();
         }
     }
 
@@ -80,16 +78,6 @@ public class PlayerManager : MonoBehaviour
         transform.position = startingPosition.runtimePlayerPosition;
     }
 
-    // Update Player attack
-    void UpdatePlayerAttack()
-    {
-        if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack
-            && currentState != PlayerState.stagger && currentState != PlayerState.interact)
-        {
-            StartCoroutine(AttackCo());
-        }
-    }
-
     // Update Player movement
     void UpdatePlayerMovement()
     {
@@ -103,20 +91,6 @@ public class PlayerManager : MonoBehaviour
         if (currentState != PlayerState.stagger)
         {
             UpdateAnimation();
-        }
-    }
-
-    // Set attack animation
-    private IEnumerator AttackCo()
-    {
-        myAnimator.SetBool("attacking", true);
-        currentState = PlayerState.attack;
-        yield return null;
-        myAnimator.SetBool("attacking", false);
-        yield return new WaitForSeconds(.33f);
-        if (currentState != PlayerState.interact)
-        {
-            currentState = PlayerState.walk;
         }
     }
 
@@ -145,6 +119,30 @@ public class PlayerManager : MonoBehaviour
         myRigidbody.MovePosition(transform.position + myPosition * speed * Time.deltaTime);
     }
 
+    // Update Player attack
+    void UpdatePlayerAttack()
+    {
+        if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack
+            && currentState != PlayerState.stagger && currentState != PlayerState.interact)
+        {
+            StartCoroutine(AttackCo());
+        }
+    }
+
+    // Set attack animation
+    private IEnumerator AttackCo()
+    {
+        myAnimator.SetBool("attacking", true);
+        currentState = PlayerState.attack;
+        yield return null;
+        myAnimator.SetBool("attacking", false);
+        yield return new WaitForSeconds(.33f);
+        if (currentState != PlayerState.interact)
+        {
+            currentState = PlayerState.walk;
+        }
+    }
+
     // Damage and knockback Player
     public void DamagePlayer(float knockbackTime, float damage)
     {
@@ -160,12 +158,12 @@ public class PlayerManager : MonoBehaviour
             myRigidbody.isKinematic = true;
             myRigidbody.velocity = Vector2.zero;
             spriteRenderer.enabled = false;
-            gameManager.ResetValues();
+            gameManager.ResetVariables();
             StartCoroutine(SceneTransitionCo(mainMenu));
         }
     }
 
-    // Stop knockback after a specified amount of time
+    // Knockback time coroutine
     private IEnumerator KnockbackTimeCo(float knockbackTime)
     {
         screenKickSignal.Raise();
@@ -187,7 +185,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    // Transition scenes from Player death
+    // Transition scene coroutine from Player death
     public IEnumerator SceneTransitionCo(string sceneToLoad)
     {
         if (fadeOutPanel != null)

@@ -5,8 +5,8 @@ using TMPro;
 public class TreasureChest : ObjectManager
 {
     [Header("Chest Contents Variables")]
-    public Item contents;
-    public Inventory inventory;
+    public ItemValues contents;
+    public InventoryValues inventory;
     public ObjectValues objectValues;
     public bool isOpen;
     private Animator myAnimator;
@@ -16,7 +16,7 @@ public class TreasureChest : ObjectManager
     public GameObject dialogBox;
     public TextMeshProUGUI dialogText;
 
-    // Get components
+    // Get treaure chest components
     void Start()
     {
         myAnimator = GetComponent<Animator>();

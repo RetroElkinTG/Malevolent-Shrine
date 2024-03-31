@@ -1,23 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 // Pause menu behaviour
 public class PauseMenu : GameManager
 {
+    [Header("Pause Menu Variables")]
     public static bool gameIsPaused;
     public GameObject pausePanel;
-    public TextMeshProUGUI pausedText;
 
-    // Start is called before the first frame update
+    // Get pause menu components
     void Start()
     {
         gameIsPaused = false;
-        pausedText.text = "Paused";
     }
 
-    // Check if game is paused
+    // Check if Player pauses game
     void Update()
     {
         if (Input.GetButtonDown("Cancel"))

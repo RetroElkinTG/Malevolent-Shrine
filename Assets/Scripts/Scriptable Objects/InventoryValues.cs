@@ -1,32 +1,31 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Inventory behaviour
+// Inventory values
 [CreateAssetMenu]
-public class Inventory : ScriptableObject, ISerializationCallbackReceiver
+public class InventoryValues : ScriptableObject, ISerializationCallbackReceiver
 {
     [Header("Inventory Variables")]
-    public Item currentItem;
-    public List<Item> items = new List<Item>();
+    public ItemValues currentItem;
+    public List<ItemValues> items = new List<ItemValues>();
     [HideInInspector]
     public int runtimeKeyCount;
     public int defaultKeyCount;
 
-    // Load values pre-runtime
+    // Set inventory values for scriptable objects; called when program is deserialized
     public void OnAfterDeserialize()
     {
         runtimeKeyCount = defaultKeyCount;
     }
 
-    // Required for above method
+    // Required for above method; called when program is serialized
     public void OnBeforeSerialize()
     {
 
     }
 
     // Add item to inventory
-    public void AddItem(Item itemToAdd)
+    public void AddItem(ItemValues itemToAdd)
     {
         if (itemToAdd.isKey)
         {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// Patrol Log behaviour
+// Elite Log behaviour
 public class EliteLog : Log
 {
     [Header("Patrol Log Variables")]

@@ -1,12 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 // Heart behaviour
 public class HeartManager : MonoBehaviour
 {
+    [Header("Heart Variables")]
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite threeQuarterHeart;
@@ -19,11 +17,11 @@ public class HeartManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InitHearts();
+        SetHearts();
     }
 
     // Set hearts
-    public void InitHearts()
+    public void SetHearts()
     {
         for (int index = 0; index < heartContainers.runtimeValue; index ++)
         {

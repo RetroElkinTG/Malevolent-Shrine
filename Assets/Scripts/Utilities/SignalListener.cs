@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 // Signal listener behaviour
 public class SignalListener : MonoBehaviour
 {
+    [Header("Signal Listener Variables")]
     public SignalSender signal;
     public UnityEvent signalEvent;
 

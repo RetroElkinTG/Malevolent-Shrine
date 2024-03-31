@@ -1,7 +1,8 @@
 using UnityEngine;
 
-// Pickup behaviour
+// Pickup object behaviour
 public class PickupManager : MonoBehaviour
 {
+    [Header("Pickup Object Variables")]
     public SignalSender pickupSignal;
 }

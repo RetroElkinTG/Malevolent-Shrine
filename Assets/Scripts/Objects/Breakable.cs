@@ -7,7 +7,7 @@ public class Breakable : MonoBehaviour
     [Header("Breakable Object Variables")]
     private Animator objectAnimator;
 
-    // Get components
+    // Get breakable object components
     void Start()
     {
         objectAnimator = GetComponent<Animator>();
@@ -20,7 +20,7 @@ public class Breakable : MonoBehaviour
         StartCoroutine(BreakTimeCo());
     }
 
-    // Break time
+    // Break time coroutine
     IEnumerator BreakTimeCo() 
     {
         yield return new WaitForSeconds(.3f);

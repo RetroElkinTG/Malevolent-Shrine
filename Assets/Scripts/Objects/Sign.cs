@@ -8,21 +8,29 @@ public class Sign : ObjectManager
     public GameObject dialogBox;
     public TextMeshProUGUI dialogText;
     public string dialog;
+    public bool isRead;
 
-    // Activate text if Player interacts with sign
+    // Check if Player reads sign
     void Update()
     {
         if (Input.GetButtonDown("Interact") && playerInRange)
         { 
-            if (dialogBox.activeInHierarchy)
-            { 
-                dialogBox.SetActive(false);
-            }
-            else 
-            { 
-                dialogBox.SetActive(true);
-                dialogText.text = dialog;
-            }
+            ActivateText();
+        }
+    }
+
+    // Activate text
+    public void ActivateText()
+    {
+        if (dialogBox.activeInHierarchy)
+        {
+            dialogBox.SetActive(false);
+            isRead = true;
+        }
+        else
+        {
+            dialogBox.SetActive(true);
+            dialogText.text = dialog;
         }
     }
 

@@ -19,13 +19,13 @@ public class RoomTransition : MonoBehaviour
     public bool needText;
     private float waitForSeconds = 4f;
 
-    // Get components
+    // Get room transition components
     void Start()
     {
         cameraManager = Camera.main.GetComponent<CameraManager>();
     }
 
-    // Change player variables on room transition
+    // Transition rooms on collision
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
@@ -37,13 +37,13 @@ public class RoomTransition : MonoBehaviour
             collision.transform.position += playerChange;
             if (needText)
             {
-                StartCoroutine(PlaceNameCo());
+                StartCoroutine(LocationNameCo());
             }
         }
     }
 
-    // Display location name for specified time
-    private IEnumerator PlaceNameCo()
+    // Display location name coroutine
+    private IEnumerator LocationNameCo()
     {
         locationTextObject.SetActive(true);
         locationText.text = locationName;

@@ -14,7 +14,7 @@ public class CameraManager : MonoBehaviour
     [Header("Scene Transition Variables")]
     public TransitionValues transitionValues;
 
-    // Set camera to player
+    // Get camera components
     private void Start()
     {
         myAnimator = GetComponent<Animator>();
@@ -36,12 +36,14 @@ public class CameraManager : MonoBehaviour
         }
     }
 
+    // Kick the screen
     public void ScreenKick()
     {
         myAnimator.SetBool("kickActive", true);
         StartCoroutine(ScreenKickCo());
     }
 
+    // Screen kick coroutine
     public IEnumerator ScreenKickCo()
     {
         yield return null;

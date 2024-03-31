@@ -15,7 +15,7 @@ public class WorldTransition : MonoBehaviour
     public GameObject fadeOutPanel;
     public float fadeWait;
 
-    // Create fade panel on scene load
+    // Create fade panel on scene transition
     private void Awake()
     {
         if (fadeInPanel != null)
@@ -37,7 +37,7 @@ public class WorldTransition : MonoBehaviour
         }
     }
 
-    // Transition scenes from world
+    // Scene transition coroutine from world
     public IEnumerator SceneTransitionCo(string sceneToLoad) 
     {
         if (fadeOutPanel != null) 

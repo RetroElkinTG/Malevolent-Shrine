@@ -15,7 +15,7 @@ public class ObjectValues : ScriptableObject, ISerializationCallbackReceiver
     public bool runtimeHeartIsPickedUp;
     public bool defaultHeartIsPickedUp;
 
-    // Load game values pre-runtime
+    // Set object values for scriptable objects; called when program is deserialized
     public void OnAfterDeserialize()
     {
         runtimeChestIsOpen = defaultChestIsOpen;
@@ -23,7 +23,7 @@ public class ObjectValues : ScriptableObject, ISerializationCallbackReceiver
         runtimeHeartIsPickedUp = defaultHeartIsPickedUp;
     }
 
-    // Required for above method
+    // Required for above method; called when program is serialized
     public void OnBeforeSerialize()
     {
 
