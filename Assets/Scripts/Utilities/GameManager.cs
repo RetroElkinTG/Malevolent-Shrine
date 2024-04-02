@@ -55,11 +55,9 @@ using UnityEngine.SceneManagement;
 /`                            |        ||    
 `-.___,-.      .-.        ___,'        (/    
          `---'`   `'----'`
-Future Updates:
+Future Update Features:
 - Custom keybinds
-- Sound effects
 - More enemy types - Orc, Red tree
-- Unique boss mechanics
 - Enemy hit indication
 - Custom pixel fonts
 - New layer for 2D verticality - Objects in front of player

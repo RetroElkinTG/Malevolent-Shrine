@@ -11,6 +11,9 @@ public class CameraManager : MonoBehaviour
     public Vector2 maxPosition;
     public Animator myAnimator;
 
+    [Header("Audio Variables")]
+    public AudioSource hitAudio;
+
     [Header("Scene Transition Variables")]
     public TransitionValues transitionValues;
 
@@ -39,6 +42,7 @@ public class CameraManager : MonoBehaviour
     // Kick the screen
     public void ScreenKick()
     {
+        hitAudio.Play();
         myAnimator.SetBool("kickActive", true);
         StartCoroutine(ScreenKickCo());
     }

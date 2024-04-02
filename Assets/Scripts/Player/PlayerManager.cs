@@ -32,6 +32,9 @@ public class PlayerManager : MonoBehaviour
     public InventoryValues inventory;
     public SpriteRenderer receivedItemSprite;
 
+    [Header("Audio Variables")]
+    public AudioSource attackAudio;
+
     [Header("Death Variables")]
     public string mainMenu;
     public GameManager gameManager;
@@ -125,6 +128,7 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack
             && currentState != PlayerState.stagger && currentState != PlayerState.interact)
         {
+            attackAudio.Play();
             StartCoroutine(AttackCo());
         }
     }

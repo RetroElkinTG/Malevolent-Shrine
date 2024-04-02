@@ -269,4 +269,4 @@ MonoBehaviour:
   attackRadius: 0.1
   myAnimator: {fileID: 586825410036036329}
   projectile: {fileID: 1758753648385274753, guid: b44586aa4ac83644596d2a5d997e59cf, type: 3}
-  shotDelay: 1
+  shotDelay: 1.25

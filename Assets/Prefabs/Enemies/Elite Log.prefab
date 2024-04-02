@@ -272,3 +272,4 @@ MonoBehaviour:
   knockback: 6
   knockbackTime: 0.2
   damage: 2
+  cameraAudio: {fileID: 629391989845272112, guid: 9b0fde9fdad21804ea02b47b170c25f7, type: 3}
