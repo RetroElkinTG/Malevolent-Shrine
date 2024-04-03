@@ -57,9 +57,9 @@ using UnityEngine.SceneManagement;
          `---'`   `'----'`
 Future Update Features:
 - Custom keybinds
+- Custom pixel fonts
 - More enemy types - Orc, Red tree
 - Enemy hit indication
-- Custom pixel fonts
 - New layer for 2D verticality - Objects in front of player
 - Highlighting menu items
 */

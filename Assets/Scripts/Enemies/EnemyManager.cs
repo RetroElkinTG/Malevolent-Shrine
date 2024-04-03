@@ -57,18 +57,18 @@ public class EnemyManager : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            KillEnemy();
+            DeathAnimation();
+            gameObject.SetActive(false);
         }
     }
 
-    // Kill enemy
-    private void KillEnemy() 
+    // Death animation
+    private void DeathAnimation() 
     {
         if (deathAnimation != null)
         {
             GameObject animation = Instantiate(deathAnimation, transform.position, Quaternion.identity);
             Destroy(animation, deathDuration);
         }
-        gameObject.SetActive(false);
     }
 }

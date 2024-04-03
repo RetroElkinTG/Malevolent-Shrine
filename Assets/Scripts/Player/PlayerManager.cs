@@ -34,6 +34,8 @@ public class PlayerManager : MonoBehaviour
 
     [Header("Audio Variables")]
     public AudioSource attackAudio;
+    public float minPitch;
+    public float maxPitch;
 
     [Header("Death Variables")]
     public string mainMenu;
@@ -128,9 +130,18 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack
             && currentState != PlayerState.stagger && currentState != PlayerState.interact)
         {
-            attackAudio.Play();
+            PlayAttackAudio();
             StartCoroutine(AttackCo());
         }
+    }
+
+    // Play attack audio
+    void PlayAttackAudio()
+    {
+        float defaultPitch = attackAudio.pitch;
+        attackAudio.pitch = Random.Range(minPitch, maxPitch);
+        attackAudio.Play();
+        attackAudio.pitch = defaultPitch;
     }
 
     // Set attack animation
